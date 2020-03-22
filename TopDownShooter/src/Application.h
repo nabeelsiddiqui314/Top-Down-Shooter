@@ -12,5 +12,7 @@ public:
 private:
 	sf::RenderWindow m_window;
 	StateMachine m_stateMachine;
+
+	sf::Clock m_deltaTimeclock;
 };
 

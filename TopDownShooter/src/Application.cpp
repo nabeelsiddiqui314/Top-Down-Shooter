@@ -19,7 +19,9 @@ void Application::execute() {
 
 		m_window.clear();
 
-		m_stateMachine.update(0.0f); // todo: input actual dt here
+		m_stateMachine.update(m_deltaTimeclock.getElapsedTime().asSeconds());
+		m_deltaTimeclock.restart();
+
 		m_stateMachine.render(m_window);
 
 		m_window.display();
