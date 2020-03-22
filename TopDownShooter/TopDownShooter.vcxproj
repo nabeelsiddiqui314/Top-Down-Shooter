@@ -131,11 +131,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\States\MenuState.cpp" />
+    <ClCompile Include="src\States\GameState.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\States\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\States\MenuState.h" />
+    <ClInclude Include="src\States\GameState.h" />
+    <ClInclude Include="src\States\IState.h" />
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\States\StateMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

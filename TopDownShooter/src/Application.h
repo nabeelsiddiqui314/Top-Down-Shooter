@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "States/StateMachine.h"
 
 class Application
 {
@@ -10,5 +11,6 @@ public:
 	void execute();
 private:
 	sf::RenderWindow m_window;
+	StateMachine m_stateMachine;
 };
 
