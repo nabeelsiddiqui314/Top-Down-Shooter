@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\IComponent.cpp" />
+    <ClCompile Include="src\Core\ResourceManager.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\Events\Event.cpp" />
     <ClCompile Include="src\States\MenuState.cpp" />
@@ -142,6 +143,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\IComponent.h" />
+    <ClInclude Include="src\Core\ResourceContainer.h" />
+    <ClInclude Include="src\Core\ResourceManager.h" />
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\Events\Event.h" />
     <ClInclude Include="src\Events\IEventHandler.h" />
