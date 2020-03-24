@@ -4,7 +4,7 @@
 
 void Entity::dispatchEvent(Event& event) {
 	for (auto& comonent : m_components) {
-		event.dispatch(*comonent->getEventHandler());
+		event.dispatch(*comonent);
 	}
 }
 
