@@ -3,7 +3,7 @@
 #include "GameState.h"
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-#include "../Core/ResourceManager.h"
+#include "../Resources/ResourceManager.h"
 
 
 MenuState::MenuState() {
