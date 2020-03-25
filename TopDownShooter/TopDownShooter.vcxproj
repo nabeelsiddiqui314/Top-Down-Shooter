@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\IComponent.h" />
+    <ClInclude Include="src\Core\IEntityFactory.h" />
     <ClInclude Include="src\Resources\ResourceContainer.h" />
     <ClInclude Include="src\Resources\ResourceManager.h" />
     <ClInclude Include="src\Core\Entity.h" />

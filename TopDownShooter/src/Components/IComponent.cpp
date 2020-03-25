@@ -1,8 +1,12 @@
 #include "IComponent.h"
+#include "../Core/Entity.h"
 
-IComponent::IComponent(const std::shared_ptr<Entity>& parent)
+IComponent::IComponent(std::weak_ptr<Entity> parent)
  :  m_parent(parent) {}
 
-const std::shared_ptr<Entity>& IComponent::getParent() const {
-	return m_parent;
+void IComponent::dispatchEventToParent(Event& event) {
+	auto parent = m_parent.lock();
+	if (parent) {
+		parent->dispatchEvent(event);
+	}
 }
