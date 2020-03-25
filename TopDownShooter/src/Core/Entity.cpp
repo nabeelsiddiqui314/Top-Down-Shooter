@@ -1,6 +1,6 @@
 #include "Entity.h"
-#include "Events/Event.h"
-#include "Components/IComponent.h"
+#include "../Events/Event.h"
+#include "../Components/IComponent.h"
 
 void Entity::dispatchEvent(Event& event) {
 	for (auto& comonent : m_components) {
