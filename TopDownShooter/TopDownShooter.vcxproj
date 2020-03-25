@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\IComponent.cpp" />
+    <ClCompile Include="src\Components\Render.cpp" />
     <ClCompile Include="src\Components\Transform.cpp" />
     <ClCompile Include="src\Core\Entities.cpp" />
     <ClCompile Include="src\Resources\ResourceManager.cpp" />
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\IComponent.h" />
+    <ClInclude Include="src\Components\Render.h" />
     <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Core\Entities.h" />
     <ClInclude Include="src\Core\IEntityFactory.h" />
