@@ -39,7 +39,7 @@
     <ClCompile Include="src\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\ResourceManager.cpp">
+    <ClCompile Include="src\Resources\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,10 +71,10 @@
     <ClInclude Include="src\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\ResourceManager.h">
+    <ClInclude Include="src\Resources\ResourceContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\ResourceContainer.h">
+    <ClInclude Include="src\Resources\ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
