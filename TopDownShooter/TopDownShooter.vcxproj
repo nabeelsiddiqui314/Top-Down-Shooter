@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\IComponent.cpp" />
+    <ClCompile Include="src\Components\Transform.cpp" />
     <ClCompile Include="src\Core\Entities.cpp" />
     <ClCompile Include="src\Resources\ResourceManager.cpp" />
     <ClCompile Include="src\Core\Entity.cpp" />
@@ -144,8 +145,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\IComponent.h" />
+    <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Core\Entities.h" />
     <ClInclude Include="src\Core\IEntityFactory.h" />
+    <ClInclude Include="src\Events\PositionEvent.h" />
     <ClInclude Include="src\Resources\ResourceContainer.h" />
     <ClInclude Include="src\Resources\ResourceManager.h" />
     <ClInclude Include="src\Core\Entity.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="src\States\IState.h" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\States\StateMachine.h" />
+    <ClInclude Include="src\TransformBehaviours\ITransformBehaviour.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
