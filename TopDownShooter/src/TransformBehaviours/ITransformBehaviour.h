@@ -5,11 +5,13 @@ class Transform;
 
 class ITransformBehaviour {
 public:
-	ITransformBehaviour(std::weak_ptr<Transform> transformComponent)
-		: p_transform(transformComponent) {}
+	ITransformBehaviour() = default;
 	virtual ~ITransformBehaviour() {}
 public:
+	void setTransformComponent(std::weak_ptr<Transform> transformComponent);
 	virtual void update(float deltaTime) = 0;
 protected:
-	std::weak_ptr<Transform> p_transform;
+	void move(float x, float y);
+private:
+	std::weak_ptr<Transform> m_transform;
 };

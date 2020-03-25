@@ -2,9 +2,9 @@
 #include "../Events/PositionEvent.h"
 #include "../TransformBehaviours/ITransformBehaviour.h"
 
-Transform::Transform(std::weak_ptr<Entity> parent, std::unique_ptr<ITransformBehaviour>&& behaviour)
+Transform::Transform(std::weak_ptr<Entity> parent, std::shared_ptr<ITransformBehaviour> behaviour)
  : IComponent(parent),
-   m_transformBehaviour(std::move(behaviour)) {}
+   m_transformBehaviour(behaviour) {}
 
 void Transform::update(float deltaTime) {
 	m_transformBehaviour->update(deltaTime);
