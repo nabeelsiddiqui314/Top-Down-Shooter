@@ -135,6 +135,7 @@
     <ClCompile Include="src\Components\Render.cpp" />
     <ClCompile Include="src\Components\Transform.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
+    <ClCompile Include="src\Entity\EntityFactories\DefaultEntityFactory.cpp" />
     <ClCompile Include="src\Resources\ResourceManager.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Events\Event.cpp" />
@@ -144,13 +145,15 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\States\StateMachine.cpp" />
     <ClCompile Include="src\TransformBehaviours\ITransformBehaviour.cpp" />
+    <ClCompile Include="src\TransformBehaviours\UserInputMovement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\Render.h" />
     <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Entity\Entities.h" />
-    <ClInclude Include="src\Entity\IEntityFactory.h" />
+    <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
+    <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h" />
     <ClInclude Include="src\Events\PositionEvent.h" />
     <ClInclude Include="src\Resources\ResourceContainer.h" />
     <ClInclude Include="src\Resources\ResourceManager.h" />
@@ -163,6 +166,7 @@
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\States\StateMachine.h" />
     <ClInclude Include="src\TransformBehaviours\ITransformBehaviour.h" />
+    <ClInclude Include="src\TransformBehaviours\UserInputMovement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

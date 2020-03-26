@@ -1,6 +1,6 @@
 #include "Entities.h"
 #include "Entity.h"
-#include "IEntityFactory.h"
+#include "Entityfactories/IEntityFactory.h"
 
 Entities::Entities(std::unique_ptr<IEntityFactory>&& entityfactory) 
  : m_entityfactory(std::move(entityfactory)) {}

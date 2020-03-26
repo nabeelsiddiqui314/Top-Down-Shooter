@@ -1,5 +1,8 @@
 #pragma once
 #include "IState.h"
+#include <memory>]
+
+class Entities;
 
 class GameState : public IState
 {
@@ -13,5 +16,7 @@ public:
 
 	void update(StateMachine* stateMachine, float deltaTime) override;
 	void render(sf::RenderWindow& window) override;
+private:
+	std::unique_ptr<Entities> m_entities;
 };
 

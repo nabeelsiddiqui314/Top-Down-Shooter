@@ -54,6 +54,12 @@
     <ClCompile Include="src\Entity\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Entity\EntityFactories\DefaultEntityFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TransformBehaviours\UserInputMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -104,7 +110,13 @@
     <ClInclude Include="src\Entity\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Entity\IEntityFactory.h">
+    <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TransformBehaviours\UserInputMovement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
