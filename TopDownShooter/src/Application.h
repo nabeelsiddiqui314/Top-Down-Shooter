@@ -1,6 +1,6 @@
 #pragma once
-#include <SFML/Graphics/RenderWindow.hpp>
 #include "States/StateMachine.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
 class Application
 {
@@ -10,7 +10,7 @@ public:
 public:
 	void execute();
 private:
-	sf::RenderWindow m_window;
+	std::shared_ptr<sf::RenderWindow> m_window;
 	StateMachine m_stateMachine;
 
 	sf::Clock m_deltaTimeclock;

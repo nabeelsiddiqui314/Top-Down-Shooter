@@ -3,7 +3,7 @@
 #include "../Events/PositionEvent.h"
 #include <SFML/Graphics/Texture.hpp>
 
-Render::Render(std::weak_ptr<Entity> parent, sf::RenderWindow* window, const std::string& textureName)
+Render::Render(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const std::string& textureName)
  : IComponent(parent),
    m_window(window) {
 	auto& resourceManager = ResourceManager::getInstance();

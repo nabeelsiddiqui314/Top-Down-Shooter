@@ -5,7 +5,7 @@
 class StateMachine
 {
 public:
-	StateMachine() = default;
+	StateMachine(std::shared_ptr<sf::RenderWindow> window);
 	~StateMachine() = default;
 public:
 	template <typename T, typename... Args>
@@ -17,8 +17,11 @@ public:
 	void handleEvents(const sf::Event& evnt);
 
 	void update(float deltaTime);
-	void render(sf::RenderWindow& window);
+	void render();
+
+	std::shared_ptr<sf::RenderWindow> getWindow() const;
 private:
 	std::unique_ptr<IState> m_currentState;
+	std::shared_ptr<sf::RenderWindow> m_window;
 };
 
