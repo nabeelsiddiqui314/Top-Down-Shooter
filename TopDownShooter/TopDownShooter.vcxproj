@@ -136,7 +136,7 @@
     <ClCompile Include="src\Components\Transform.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactories\DefaultEntityFactory.cpp" />
-    <ClCompile Include="src\Resources\ResourceManager.cpp" />
+    <ClCompile Include="src\Utilities\ResourceManager.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Events\Event.cpp" />
     <ClCompile Include="src\States\MenuState.cpp" />
@@ -155,8 +155,8 @@
     <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
     <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h" />
     <ClInclude Include="src\Events\PositionEvent.h" />
-    <ClInclude Include="src\Resources\ResourceContainer.h" />
-    <ClInclude Include="src\Resources\ResourceManager.h" />
+    <ClInclude Include="src\Utilities\ResourceContainer.h" />
+    <ClInclude Include="src\Utilities\ResourceManager.h" />
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Events\Event.h" />
     <ClInclude Include="src\Events\IEventHandler.h" />
