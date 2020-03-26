@@ -1,5 +1,5 @@
 #include "Render.h"
-#include "../Resources/ResourceManager.h"
+#include "../Utilities/ResourceManager.h"
 #include "../Events/PositionEvent.h"
 #include <SFML/Graphics/Texture.hpp>
 
