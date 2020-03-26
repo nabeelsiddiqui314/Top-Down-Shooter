@@ -131,11 +131,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Components\Animation.cpp" />
     <ClCompile Include="src\Components\IComponent.cpp" />
     <ClCompile Include="src\Components\Render.cpp" />
     <ClCompile Include="src\Components\Transform.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactories\DefaultEntityFactory.cpp" />
+    <ClCompile Include="src\Utilities\Animator.cpp" />
     <ClCompile Include="src\Utilities\ResourceManager.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Events\Event.cpp" />
@@ -148,13 +150,17 @@
     <ClCompile Include="src\TransformBehaviours\UserInputMovement.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Components\Animation.h" />
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\Render.h" />
     <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
     <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h" />
+    <ClInclude Include="src\Events\AnimationEvent.h" />
     <ClInclude Include="src\Events\PositionEvent.h" />
+    <ClInclude Include="src\Events\TextureRectEvent.h" />
+    <ClInclude Include="src\Utilities\Animator.h" />
     <ClInclude Include="src\Utilities\ResourceContainer.h" />
     <ClInclude Include="src\Utilities\ResourceManager.h" />
     <ClInclude Include="src\Entity\Entity.h" />

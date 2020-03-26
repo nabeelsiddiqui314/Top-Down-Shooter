@@ -2,6 +2,7 @@
 #include "../Utilities/ResourceManager.h"
 #include "../Events/PositionEvent.h"
 #include <SFML/Graphics/Texture.hpp>
+#include "../Events/TextureRectEvent.h"
 
 Render::Render(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const std::string& textureName)
  : IComponent(parent),
@@ -18,4 +19,8 @@ void Render::update(float deltaTime) {
 
 void Render::handleEvent(const PositionEvent& event) {
 	m_sprite.setPosition(event.position);
+}
+
+void Render::handleEvent(const TextureRectEvent& event) {
+	m_sprite.setTextureRect(event.rect);
 }
