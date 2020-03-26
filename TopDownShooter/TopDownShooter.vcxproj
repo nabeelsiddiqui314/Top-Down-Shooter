@@ -134,9 +134,9 @@
     <ClCompile Include="src\Components\IComponent.cpp" />
     <ClCompile Include="src\Components\Render.cpp" />
     <ClCompile Include="src\Components\Transform.cpp" />
-    <ClCompile Include="src\Core\Entities.cpp" />
+    <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Resources\ResourceManager.cpp" />
-    <ClCompile Include="src\Core\Entity.cpp" />
+    <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Events\Event.cpp" />
     <ClCompile Include="src\States\MenuState.cpp" />
     <ClCompile Include="src\States\GameState.cpp" />
@@ -149,12 +149,12 @@
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\Render.h" />
     <ClInclude Include="src\Components\Transform.h" />
-    <ClInclude Include="src\Core\Entities.h" />
-    <ClInclude Include="src\Core\IEntityFactory.h" />
+    <ClInclude Include="src\Entity\Entities.h" />
+    <ClInclude Include="src\Entity\IEntityFactory.h" />
     <ClInclude Include="src\Events\PositionEvent.h" />
     <ClInclude Include="src\Resources\ResourceContainer.h" />
     <ClInclude Include="src\Resources\ResourceManager.h" />
-    <ClInclude Include="src\Core\Entity.h" />
+    <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Events\Event.h" />
     <ClInclude Include="src\Events\IEventHandler.h" />
     <ClInclude Include="src\States\MenuState.h" />

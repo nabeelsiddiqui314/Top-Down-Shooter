@@ -1,5 +1,5 @@
 #include "IComponent.h"
-#include "../Core/Entity.h"
+#include "../Entity/Entity.h"
 
 IComponent::IComponent(std::weak_ptr<Entity> parent)
  :  m_parent(parent) {}
