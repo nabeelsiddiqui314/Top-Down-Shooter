@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
     <ClCompile Include="src\Components\IComponent.cpp" />
+    <ClCompile Include="src\Components\ControllerComponent.cpp" />
     <ClCompile Include="src\Components\RenderComponent.cpp" />
     <ClCompile Include="src\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="src\Components\AnimationComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
+    <ClInclude Include="src\Components\ControllerComponent.h" />
     <ClInclude Include="src\Components\RenderComponent.h" />
     <ClInclude Include="src\Components\TransformComponent.h" />
     <ClInclude Include="src\Entity\Entities.h" />

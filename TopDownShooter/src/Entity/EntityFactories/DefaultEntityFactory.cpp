@@ -3,6 +3,7 @@
 #include "../../Components/TransformComponent.h"
 #include "../../Components/RenderComponent.h"
 #include "../../Components/AnimationComponent.h"
+#include "../../Components/ControllerComponent.h"
 
 DefaultEntityFactory::DefaultEntityFactory(std::shared_ptr<sf::RenderWindow> window)
  : m_window(window) {}
@@ -19,10 +20,13 @@ std::shared_ptr<Entity> DefaultEntityFactory::createPlayer() const {
 	animationInfo.columns = {4, 4, 4, 4};
 
 	auto animationComp = std::make_shared<AnimationComponent>(player, animationInfo);
+	auto controllerComp = std::make_shared<ControllerComponent>(player, 100);
+
 
 	player->registerComponent(transformComp);
 	player->registerComponent(renderComp);
 	player->registerComponent(animationComp);
+	player->registerComponent(controllerComp);
 
 	return player;
 }
