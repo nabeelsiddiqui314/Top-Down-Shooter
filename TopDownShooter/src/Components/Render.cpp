@@ -1,6 +1,6 @@
 #include "Render.h"
 #include "../Utilities/ResourceManager.h"
-#include "../Events/PositionEvent.h"
+#include "../Events/TransformEvent.h"
 #include <SFML/Graphics/Texture.hpp>
 #include "../Events/TextureRectEvent.h"
 
@@ -17,8 +17,10 @@ void Render::update(float deltaTime) {
 	m_window->draw(m_sprite);
 }
 
-void Render::handleEvent(const PositionEvent& event) {
-	m_sprite.setPosition(event.position);
+void Render::handleEvent(const TransformEvent& event) {
+	if (event.type == TransformEvent::Type::TRANSFORM) {
+		m_sprite.setPosition(event.transformVector);
+	}
 }
 
 void Render::handleEvent(const TextureRectEvent& event) {

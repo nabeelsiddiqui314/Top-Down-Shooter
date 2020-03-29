@@ -2,7 +2,6 @@
 #include "../Entity.h"
 #include "../../Components/Transform.h"
 #include "../../Components/Render.h"
-#include "../../TransformBehaviours/UserInputMovement.h"
 #include "../../Components/Animation.h"
 
 DefaultEntityFactory::DefaultEntityFactory(std::shared_ptr<sf::RenderWindow> window)
@@ -11,11 +10,7 @@ DefaultEntityFactory::DefaultEntityFactory(std::shared_ptr<sf::RenderWindow> win
 std::shared_ptr<Entity> DefaultEntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>();
 	
-	auto userInputBehaviour = std::make_shared<UserInputMovement>(100.0f);
-	auto transformComp = std::make_shared<Transform>(player, userInputBehaviour);
-
-	userInputBehaviour->setTransformComponent(transformComp);
-
+	auto transformComp = std::make_shared<Transform>(player);
 	auto renderComp = std::make_shared<Render>(player, m_window, "player.png");
 
 	Animator::AnimationInfo animationInfo;

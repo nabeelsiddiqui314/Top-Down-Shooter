@@ -3,9 +3,15 @@
 #include "IEventHandler.h"
 #include <SFML/System/Vector2.hpp>
 
-class PositionEvent : public Event {
+class TransformEvent : public Event {
 public:
-	sf::Vector2f position;
+	enum class Type {
+		CHANGE, 
+		TRANSFORM
+	};
+
+	Type type;
+	sf::Vector2f transformVector;
 public:
 	void dispatch(IEventHandler& handler) override {
 		handler.handleEvent(*this);

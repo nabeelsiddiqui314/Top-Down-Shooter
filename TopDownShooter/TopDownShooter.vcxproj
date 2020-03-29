@@ -146,8 +146,6 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\States\StateMachine.cpp" />
-    <ClCompile Include="src\TransformBehaviours\ITransformBehaviour.cpp" />
-    <ClCompile Include="src\TransformBehaviours\UserInputMovement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\Animation.h" />
@@ -158,7 +156,7 @@
     <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
     <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h" />
     <ClInclude Include="src\Events\AnimationEvent.h" />
-    <ClInclude Include="src\Events\PositionEvent.h" />
+    <ClInclude Include="src\Events\TransformEvent.h" />
     <ClInclude Include="src\Events\TextureRectEvent.h" />
     <ClInclude Include="src\Utilities\Animator.h" />
     <ClInclude Include="src\Utilities\ResourceContainer.h" />
@@ -171,8 +169,6 @@
     <ClInclude Include="src\States\IState.h" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\States\StateMachine.h" />
-    <ClInclude Include="src\TransformBehaviours\ITransformBehaviour.h" />
-    <ClInclude Include="src\TransformBehaviours\UserInputMovement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
