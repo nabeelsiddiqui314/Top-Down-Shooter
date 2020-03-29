@@ -131,10 +131,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Components\Animation.cpp" />
+    <ClCompile Include="src\Components\AnimationComponent.cpp" />
     <ClCompile Include="src\Components\IComponent.cpp" />
-    <ClCompile Include="src\Components\Render.cpp" />
-    <ClCompile Include="src\Components\Transform.cpp" />
+    <ClCompile Include="src\Components\RenderComponent.cpp" />
+    <ClCompile Include="src\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactories\DefaultEntityFactory.cpp" />
     <ClCompile Include="src\Utilities\Animator.cpp" />
@@ -148,10 +148,10 @@
     <ClCompile Include="src\States\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Components\Animation.h" />
+    <ClInclude Include="src\Components\AnimationComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
-    <ClInclude Include="src\Components\Render.h" />
-    <ClInclude Include="src\Components\Transform.h" />
+    <ClInclude Include="src\Components\RenderComponent.h" />
+    <ClInclude Include="src\Components\TransformComponent.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
     <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h" />

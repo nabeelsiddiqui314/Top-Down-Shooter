@@ -1,7 +1,7 @@
-#include "Animation.h"
+#include "AnimationComponent.h"
 #include "../Events/TextureRectEvent.h"
 
-Animation::Animation(std::weak_ptr<Entity> parent, const Animator::AnimationInfo& animInfo)
+AnimationComponent::AnimationComponent(std::weak_ptr<Entity> parent, const Animator::AnimationInfo& animInfo)
 	: IComponent(parent),
 	m_animator(animInfo)  {
 	TextureRectEvent textureRectEvent;
@@ -10,7 +10,7 @@ Animation::Animation(std::weak_ptr<Entity> parent, const Animator::AnimationInfo
 	dispatchEventToParent(textureRectEvent);
 }
 
-void Animation::update(float deltaTime) {
+void AnimationComponent::update(float deltaTime) {
 	TextureRectEvent textureRectEvent;
 
 	if (m_data.shouldAnimate) {
@@ -23,6 +23,6 @@ void Animation::update(float deltaTime) {
 	dispatchEventToParent(textureRectEvent);
 }
 
-void Animation::handleEvent(const AnimationEvent& event) {
+void AnimationComponent::handleEvent(const AnimationEvent& event) {
 	m_data = event.data;
 }

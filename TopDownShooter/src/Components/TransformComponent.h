@@ -2,10 +2,10 @@
 #include "IComponent.h"
 #include <SFML/System/Vector2.hpp>
 
-class Transform : public IComponent {
+class TransformComponent : public IComponent {
 public:
-	Transform(std::weak_ptr<Entity> parent);
-	~Transform() = default;
+	TransformComponent(std::weak_ptr<Entity> parent);
+	~TransformComponent() = default;
 public:
 	void update(float deltaTime) override;
 

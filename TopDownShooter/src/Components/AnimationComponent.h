@@ -3,10 +3,10 @@
 #include "../Utilities/Animator.h"
 #include "../Events/AnimationEvent.h"
 
-class Animation : public IComponent {
+class AnimationComponent : public IComponent {
 public:
-	Animation(std::weak_ptr<Entity> parent, const Animator::AnimationInfo& animInfo);
-	~Animation() = default;
+	AnimationComponent(std::weak_ptr<Entity> parent, const Animator::AnimationInfo& animInfo);
+	~AnimationComponent() = default;
 public:
 	void update(float deltaTime) override;
 	void handleEvent(const AnimationEvent& event) override;

@@ -3,10 +3,10 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
-class Render : public IComponent {
+class RenderComponent : public IComponent {
 public:
-	Render(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const std::string& textureName);
-	~Render() = default;
+	RenderComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const std::string& textureName);
+	~RenderComponent() = default;
 public:
 	void update(float deltaTime) override;
 

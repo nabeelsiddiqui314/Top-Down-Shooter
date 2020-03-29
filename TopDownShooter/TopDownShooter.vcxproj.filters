@@ -36,12 +36,6 @@
     <ClCompile Include="src\Components\IComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Components\Transform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\Render.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Entity\Entities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,7 +51,13 @@
     <ClCompile Include="src\Utilities\Animator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Components\Animation.cpp">
+    <ClCompile Include="src\Components\TransformComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\RenderComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\AnimationComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,12 +86,6 @@
     <ClInclude Include="src\Components\IComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Transform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\Render.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Entity\Entities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -116,13 +110,19 @@
     <ClInclude Include="src\Events\AnimationEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Events\TextureRectEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Events\TransformEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\TransformComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\RenderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\AnimationComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
