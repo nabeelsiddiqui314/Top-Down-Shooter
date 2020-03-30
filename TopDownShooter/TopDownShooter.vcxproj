@@ -158,6 +158,7 @@
     <ClInclude Include="src\Components\RenderComponent.h" />
     <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
     <ClInclude Include="src\Components\TransformComponent.h" />
+    <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
     <ClInclude Include="src\Entity\EntityFactories\IEntityFactory.h" />

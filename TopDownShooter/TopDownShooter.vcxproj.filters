@@ -143,5 +143,8 @@
     <ClInclude Include="src\Components\TimedLifetimeComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Entity\Blueprints\IBlueprint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
