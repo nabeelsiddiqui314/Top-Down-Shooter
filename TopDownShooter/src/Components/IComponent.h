@@ -11,6 +11,7 @@ public:
 public:
 	virtual void update(float deltaTime) = 0;
 	void dispatchEventToParent(Event& event);
+	void destroyParent();
 private:
 	std::weak_ptr<Entity> m_parent;
 };

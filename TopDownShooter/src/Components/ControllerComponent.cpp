@@ -38,6 +38,10 @@ void ControllerComponent::update(float deltaTime) {
 		animation.data.column = 3;
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
+		destroyParent();
+	}
+
 	dispatchEventToParent(move);
 	dispatchEventToParent(animation);
 }

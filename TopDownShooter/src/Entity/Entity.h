@@ -18,6 +18,10 @@ public:
 	void removeComponent(const IComponentPtr& component);
 
 	void update(float deltaTime);
+	
+	void destroy();
+	bool shouldDestroy() const;
 private:
 	std::vector<IComponentPtr> m_components;
+	bool m_shouldDestroy = false;
 };

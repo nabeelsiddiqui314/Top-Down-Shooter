@@ -10,3 +10,10 @@ void IComponent::dispatchEventToParent(Event& event) {
 		parent->dispatchEvent(event);
 	}
 }
+
+void IComponent::destroyParent() {
+	auto parent = m_parent.lock();
+	if (parent) {
+		parent->destroy();
+	}
+}

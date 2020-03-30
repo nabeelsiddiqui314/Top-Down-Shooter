@@ -24,3 +24,11 @@ void Entity::update(float deltaTime) {
 		component->update(deltaTime);
 	}
 }
+
+void Entity::destroy() {
+	m_shouldDestroy = true;
+}
+
+bool Entity::shouldDestroy() const {
+	return m_shouldDestroy;
+}
