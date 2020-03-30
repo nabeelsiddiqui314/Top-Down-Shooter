@@ -1,20 +1,20 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include "EntityFactory.h"
 
 class Entity;
-class IEntityFactory;
 
 class Entities {
 private:
 	typedef std::shared_ptr<Entity> EntityPtr;
 public:
-	Entities(std::unique_ptr<IEntityFactory>&& entityfactory);
+	Entities(std::shared_ptr<sf::RenderWindow> window);
 	~Entities() = default;
 public:
 	void create();
 	void update(float deltaTime);
 private:
-	std::unique_ptr<IEntityFactory> m_entityfactory;
+	EntityFactory m_entityfactory;
 	std::vector<EntityPtr> m_entities;
 };

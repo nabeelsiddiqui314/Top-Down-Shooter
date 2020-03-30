@@ -1,14 +1,14 @@
-#include "DefaultEntityFactory.h"
-#include "../Entity.h"
-#include "../../Components/TransformComponent.h"
-#include "../../Components/RenderComponent.h"
-#include "../../Components/AnimationComponent.h"
-#include "../../Components/ControllerComponent.h"
+#include "EntityFactory.h"
+#include "Entity.h"
+#include "../Components/TransformComponent.h"
+#include "../Components/RenderComponent.h"
+#include "../Components/AnimationComponent.h"
+#include "../Components/ControllerComponent.h"
 
-DefaultEntityFactory::DefaultEntityFactory(std::shared_ptr<sf::RenderWindow> window)
+EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window)
  : m_window(window) {}
 
-std::shared_ptr<Entity> DefaultEntityFactory::createPlayer() const {
+std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>();
 	
 	auto transformComp = std::make_shared<TransformComponent>(player, 100, 100);
