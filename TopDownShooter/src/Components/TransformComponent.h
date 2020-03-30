@@ -5,6 +5,7 @@
 class TransformComponent : public IComponent {
 public:
 	TransformComponent(std::weak_ptr<Entity> parent);
+	TransformComponent(std::weak_ptr<Entity> parent, float x, float y);
 	~TransformComponent() = default;
 public:
 	void update(float deltaTime) override;

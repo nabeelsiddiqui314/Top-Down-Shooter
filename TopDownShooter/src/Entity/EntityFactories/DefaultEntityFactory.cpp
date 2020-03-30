@@ -11,7 +11,7 @@ DefaultEntityFactory::DefaultEntityFactory(std::shared_ptr<sf::RenderWindow> win
 std::shared_ptr<Entity> DefaultEntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>();
 	
-	auto transformComp = std::make_shared<TransformComponent>(player);
+	auto transformComp = std::make_shared<TransformComponent>(player, 100, 100);
 	auto renderComp = std::make_shared<RenderComponent>(player, m_window, "player.png");
 
 	Animator::AnimationInfo animationInfo;
