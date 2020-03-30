@@ -136,6 +136,7 @@
     <ClCompile Include="src\Components\ControllerComponent.cpp" />
     <ClCompile Include="src\Components\ProjectileComponent.cpp" />
     <ClCompile Include="src\Components\RenderComponent.cpp" />
+    <ClCompile Include="src\Components\TimedLifetimeComponent.cpp" />
     <ClCompile Include="src\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactories\DefaultEntityFactory.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="src\Components\ControllerComponent.h" />
     <ClInclude Include="src\Components\ProjectileComponent.h" />
     <ClInclude Include="src\Components\RenderComponent.h" />
+    <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
     <ClInclude Include="src\Components\TransformComponent.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactories\DefaultEntityFactory.h" />
