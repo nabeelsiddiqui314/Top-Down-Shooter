@@ -5,11 +5,12 @@
 #include "../Components/AnimationComponent.h"
 #include "../Components/ControllerComponent.h"
 
-EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window)
- : m_window(window) {}
+EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
+ : m_window(window),
+   m_entityManager(entityManager) {}
 
 std::shared_ptr<Entity> EntityFactory::createPlayer() const {
-	auto player = std::make_shared<Entity>();
+	auto player = std::make_shared<Entity>(m_entityManager);
 	
 	auto transformComp = std::make_shared<TransformComponent>(player, 100, 100);
 	auto renderComp = std::make_shared<RenderComponent>(player, m_window, "player.png");

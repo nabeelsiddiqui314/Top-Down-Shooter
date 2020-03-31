@@ -4,12 +4,13 @@
 
 class Event;
 class IComponent;
+class EntityManager;
 
 class Entity {
 private:
 	typedef std::shared_ptr<IComponent> IComponentPtr;
 public:
-	Entity() = default;
+	Entity(std::weak_ptr<EntityManager> entityManager);
 	~Entity() = default;
 public:
 	void dispatchEvent(Event& event);
@@ -19,9 +20,11 @@ public:
 
 	void update(float deltaTime);
 	
+	std::weak_ptr<EntityManager> getEntityManager() const;
 	void destroy();
 	bool shouldDestroy() const;
 private:
 	std::vector<IComponentPtr> m_components;
+	std::weak_ptr<EntityManager> m_entityManager;
 	bool m_shouldDestroy = false;
 };

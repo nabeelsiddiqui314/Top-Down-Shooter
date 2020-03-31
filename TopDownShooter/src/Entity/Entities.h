@@ -14,6 +14,6 @@ public:
 	void create();
 	void update(float deltaTime);
 private:
-	EntityManager m_entityManager;
+	std::shared_ptr<EntityManager> m_entityManager;
 	EntityFactory m_entityfactory;
 };

@@ -3,6 +3,7 @@
 #include "../Events/IEventHandler.h"
 
 class Entity;
+class IBlueprint;
 
 class IComponent : public IEventHandler {
 public:
@@ -13,6 +14,7 @@ public:
 	void dispatchEventToParent(Event& event);
 protected:
 	void destroyParent();
+	void addEntityFromBlueprint(std::unique_ptr<IBlueprint>& bluePrint);
 private:
 	std::weak_ptr<Entity> m_parent;
 };

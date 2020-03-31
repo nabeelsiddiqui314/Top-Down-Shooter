@@ -14,7 +14,7 @@ BulletBlueprint::BulletBlueprint(std::weak_ptr<Entity> parent, std::shared_ptr<s
 }
 
 std::shared_ptr<Entity> BulletBlueprint::getEntity() {
-	auto bullet = std::make_shared<Entity>();
+	auto bullet = std::make_shared<Entity>(m_parent.lock()->getEntityManager());
 
 	auto transformComponent = std::make_shared<TransformComponent>(m_parent, m_pos.x, m_pos.y);
 	auto projectileComponent = std::make_shared<ProjectileComponent>(m_parent, m_velocity.x, m_velocity.y);
