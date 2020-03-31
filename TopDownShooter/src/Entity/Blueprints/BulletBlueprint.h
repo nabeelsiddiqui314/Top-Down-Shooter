@@ -6,8 +6,8 @@
 
 class BulletBlueprint : public IBlueprint {
 public:
-	BulletBlueprint(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, 
-		const sf::Vector2f& pos, const sf::Vector2f& velocity, const std::string& textureName);
+	BulletBlueprint(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const sf::Vector2f& pos,
+		const sf::Vector2f& velocity, const std::string& textureName);
 	~BulletBlueprint() = default;
 public:
 	std::shared_ptr<Entity> getEntity() override;

@@ -3,7 +3,7 @@
 
 ProjectileComponent::ProjectileComponent(std::weak_ptr<Entity> parent, float velocityX, float velocityY)
  : IComponent(parent),
-   m_velocity({ velocityX, velocityX }) {}
+   m_velocity({ velocityX, velocityY }) {}
 
 void ProjectileComponent::update(float deltaTime) {
 	TransformEvent moveEvnt;

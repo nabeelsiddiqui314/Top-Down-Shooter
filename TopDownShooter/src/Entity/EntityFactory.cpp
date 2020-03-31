@@ -4,6 +4,7 @@
 #include "../Components/RenderComponent.h"
 #include "../Components/AnimationComponent.h"
 #include "../Components/ControllerComponent.h"
+#include "../Components/GunComponent.h"
 
 EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
  : m_window(window),
@@ -12,7 +13,7 @@ EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak
 std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>(m_entityManager);
 	
-	auto transformComp = std::make_shared<TransformComponent>(player, 100, 100);
+	auto transformComp = std::make_shared<TransformComponent>(player, 300, 100);
 	auto renderComp = std::make_shared<RenderComponent>(player, m_window, "player.png");
 
 	Animator::AnimationInfo animationInfo;
@@ -22,12 +23,14 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 
 	auto animationComp = std::make_shared<AnimationComponent>(player, animationInfo);
 	auto controllerComp = std::make_shared<ControllerComponent>(player, 100);
+	auto gunComp = std::make_shared<GunComponent>(player, m_window);
 
 
 	player->registerComponent(transformComp);
 	player->registerComponent(renderComp);
 	player->registerComponent(animationComp);
 	player->registerComponent(controllerComp);
+	player->registerComponent(gunComp);
 
 	return player;
 }

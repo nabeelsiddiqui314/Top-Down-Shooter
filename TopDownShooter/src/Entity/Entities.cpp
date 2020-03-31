@@ -11,5 +11,4 @@ void Entities::create() {
 
 void Entities::update(float deltaTime) {
 	m_entityManager->update(deltaTime);
-
 }

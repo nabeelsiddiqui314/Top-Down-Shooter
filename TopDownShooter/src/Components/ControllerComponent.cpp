@@ -1,7 +1,9 @@
 #include "ControllerComponent.h"
 #include <SFML/Window/Keyboard.hpp>
+#include <SFML/Window/Mouse.hpp>
 #include "../Events/TransformEvent.h"
 #include "../Events/AnimationEvent.h"
+#include "../Events/GunFireEvent.h"
 
 ControllerComponent::ControllerComponent(std::weak_ptr<Entity> parent, float speed)
  : IComponent(parent),
@@ -16,6 +18,20 @@ void ControllerComponent::update(float deltaTime) {
 	animation.data.shouldAnimate = false;
 	animation.data.row = 3;
 	animation.data.interval = 50;
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+		if (!m_wasPressed) {
+			GunFireEvent fireEvent;
+			fireEvent.pos = m_position;
+			fireEvent.velocity = { 100.0f, 0.0f };
+			fireEvent.bulletTexture = "bullet.png";
+			dispatchEventToParent(fireEvent);
+			m_wasPressed = true;
+		}
+	}
+	else {
+		m_wasPressed = false;
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		move.transformVector = { 0, -m_speed };
@@ -40,4 +56,10 @@ void ControllerComponent::update(float deltaTime) {
 
 	dispatchEventToParent(move);
 	dispatchEventToParent(animation);
+}
+
+void ControllerComponent::handleEvent(const TransformEvent& event) {
+	if (event.type == TransformEvent::Type::TRANSFORM) {
+		m_position = event.transformVector;
+	}
 }
