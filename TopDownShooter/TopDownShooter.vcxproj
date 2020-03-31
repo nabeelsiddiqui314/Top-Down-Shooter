@@ -142,6 +142,7 @@
     <ClCompile Include="src\Entity\Blueprints\BulletBlueprint.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactory.cpp" />
+    <ClCompile Include="src\Entity\EntityManager.cpp" />
     <ClCompile Include="src\Utilities\Animator.cpp" />
     <ClCompile Include="src\Utilities\ResourceManager.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactory.h" />
+    <ClInclude Include="src\Entity\EntityManager.h" />
     <ClInclude Include="src\Events\AnimationEvent.h" />
     <ClInclude Include="src\Events\GunFireEvent.h" />
     <ClInclude Include="src\Events\TransformEvent.h" />

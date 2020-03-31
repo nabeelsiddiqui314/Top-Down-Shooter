@@ -1,13 +1,12 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include "EntityManager.h"
 #include "EntityFactory.h"
 
 class Entity;
 
 class Entities {
-private:
-	typedef std::shared_ptr<Entity> EntityPtr;
 public:
 	Entities(std::shared_ptr<sf::RenderWindow> window);
 	~Entities() = default;
@@ -15,6 +14,6 @@ public:
 	void create();
 	void update(float deltaTime);
 private:
+	EntityManager m_entityManager;
 	EntityFactory m_entityfactory;
-	std::vector<EntityPtr> m_entities;
 };
