@@ -138,6 +138,7 @@
     <ClCompile Include="src\Components\RenderComponent.cpp" />
     <ClCompile Include="src\Components\TimedLifetimeComponent.cpp" />
     <ClCompile Include="src\Components\TransformComponent.cpp" />
+    <ClCompile Include="src\Entity\Blueprints\BulletBlueprint.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactory.cpp" />
     <ClCompile Include="src\Utilities\Animator.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="src\Components\RenderComponent.h" />
     <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
     <ClInclude Include="src\Components\TransformComponent.h" />
+    <ClInclude Include="src\Entity\Blueprints\BulletBlueprint.h" />
     <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactory.h" />
