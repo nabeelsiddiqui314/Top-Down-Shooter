@@ -15,9 +15,10 @@ void AnimationComponent::update(float deltaTime) {
 	}
 }
 
-void AnimationComponent::setAnimationColumn(int column) {
+void AnimationComponent::setAnimationColumn(int column, float interval) {
 	m_column = column;
 	m_shouldAnimate = true;
+	m_interval = interval;
 }
 
 void AnimationComponent::setStillFrame(int row, int column) {

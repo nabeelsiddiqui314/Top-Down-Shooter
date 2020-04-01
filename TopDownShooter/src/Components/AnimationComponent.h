@@ -9,7 +9,7 @@ public:
 public:
 	void update(float deltaTime) override;
 
-	void setAnimationColumn(int column);
+	void setAnimationColumn(int column, float interval);
 	void setStillFrame(int row, int column);
 
 	bool shouldAnimate() const;

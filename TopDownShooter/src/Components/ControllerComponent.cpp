@@ -62,7 +62,7 @@ void ControllerComponent::update(float deltaTime) {
 	auto animationComponent = m_animationComponent.lock();
 	if (animationComponent) {
 		if (shouldAnimate) {
-			animationComponent->setAnimationColumn(column);
+			animationComponent->setAnimationColumn(column, 100.0f);
 		}
 		else {
 			animationComponent->setStillFrame(0,0);
