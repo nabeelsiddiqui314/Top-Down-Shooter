@@ -2,9 +2,19 @@
 #include "../Events/Event.h"
 #include "../Components/IComponent.h"
 #include "EntityManager.h"
+#include "../Components/TransformComponent.h"
 
 Entity::Entity(std::weak_ptr<EntityManager> entityManager) 
-: m_entityManager(entityManager) {}
+	: m_entityManager(entityManager) {
+	m_transformComponent = std::make_shared<TransformComponent>(weak_from_this());
+	registerComponent(m_transformComponent);
+}
+
+Entity::Entity(std::weak_ptr<EntityManager> entityManager, float x, float y)
+	: m_entityManager(entityManager) {
+	m_transformComponent = std::make_shared<TransformComponent>(weak_from_this(), x, y);
+	registerComponent(m_transformComponent);
+}
 
 void Entity::dispatchEvent(Event& event) {
 	for (auto& comonent : m_components) {
@@ -12,11 +22,11 @@ void Entity::dispatchEvent(Event& event) {
 	}
 }
 
-void Entity::registerComponent(const IComponentPtr& component) {
-	m_components.emplace_back(component);
+void Entity::registerComponent(const IComponentPtr component) {
+	m_components.push_back(component);
 }
 
-void Entity::removeComponent(const IComponentPtr& component) {
+void Entity::removeComponent(const IComponentPtr component) {
 	auto componentIterator = std::find(m_components.begin(), m_components.end(), component);
 	if (componentIterator != m_components.end()) {
 		m_components.erase(componentIterator);
@@ -31,10 +41,6 @@ void Entity::update(float deltaTime) {
 
 std::weak_ptr<EntityManager> Entity::getEntityManager() const {
 	return m_entityManager;
-}
-
-void Entity::setTransformComponent(std::shared_ptr<TransformComponent> transform) {
-	m_transformComponent = transform;
 }
 
 std::shared_ptr<TransformComponent> Entity::getTransformComponent() const {

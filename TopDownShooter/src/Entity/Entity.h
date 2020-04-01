@@ -7,22 +7,22 @@ class IComponent;
 class EntityManager;
 class TransformComponent;
 
-class Entity {
+class Entity : private std::enable_shared_from_this<Entity> {
 private:
 	typedef std::shared_ptr<IComponent> IComponentPtr;
 public:
 	Entity(std::weak_ptr<EntityManager> entityManager);
+	Entity(std::weak_ptr<EntityManager> entityManager, float x, float y);
 	~Entity() = default;
 public:
 	void dispatchEvent(Event& event);
 
-	void registerComponent(const IComponentPtr& component);
-	void removeComponent(const IComponentPtr& component);
+	void registerComponent(const IComponentPtr component);
+	void removeComponent(const IComponentPtr component);
 
 	void update(float deltaTime);
 	
 	std::weak_ptr<EntityManager> getEntityManager() const;
-	void setTransformComponent(std::shared_ptr<TransformComponent> transform);
 	std::shared_ptr<TransformComponent> getTransformComponent() const;
 	void destroy();
 	bool shouldDestroy() const;
