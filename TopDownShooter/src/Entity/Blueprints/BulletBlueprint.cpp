@@ -15,15 +15,12 @@ BulletBlueprint::BulletBlueprint(std::weak_ptr<Entity> parent, std::shared_ptr<s
 }
 
 std::shared_ptr<Entity> BulletBlueprint::getEntity() {
-	auto bullet = std::make_shared<Entity>(m_parent.lock()->getEntityManager(), m_pos.x, m_pos.y);
+	auto bullet = std::make_shared<Entity>(m_parent.lock()->getEntityManager());
 
-	auto projectileComponent = std::make_shared<ProjectileComponent>(bullet, m_velocity.x, m_velocity.y);
-	auto renderComponent = std::make_shared<RenderComponent>(bullet, m_window, m_textureName);
-	auto timedLifetimeComponent = std::make_shared<TimedLifetimeComponent>(bullet, 7);
-
-	bullet->registerComponent(projectileComponent);
-	bullet->registerComponent(renderComponent);
-	bullet->registerComponent(timedLifetimeComponent);
+	bullet->addComponent<TransformComponent>(bullet, m_pos.x, m_pos.y);
+	bullet->addComponent<ProjectileComponent>(bullet, m_velocity.x, m_velocity.y);
+	bullet->addComponent<RenderComponent>(bullet, m_window, m_textureName);
+	bullet->addComponent<TimedLifetimeComponent>(bullet, 7);
 
 	return bullet;
 }

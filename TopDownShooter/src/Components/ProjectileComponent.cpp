@@ -5,6 +5,12 @@ ProjectileComponent::ProjectileComponent(std::weak_ptr<Entity> parent, float vel
  : IComponent(parent),
    m_velocity({ velocityX, velocityY }) {}
 
+void ProjectileComponent::init() {
+	if (hasComponent<TransformComponent>()) {
+		m_transformComponent = getComponent<TransformComponent>();
+	}
+}
+
 void ProjectileComponent::update(float deltaTime) {
-	getTransformComponent()->setVelocity(m_velocity.x, m_velocity.y);
+	m_transformComponent.lock()->setVelocity(m_velocity.x, m_velocity.y);
 }

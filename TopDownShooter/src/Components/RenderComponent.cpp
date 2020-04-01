@@ -13,8 +13,14 @@ RenderComponent::RenderComponent(std::weak_ptr<Entity> parent, std::shared_ptr<s
 	m_sprite.setTexture(*m_texture);
 }
 
+void RenderComponent::init() {
+	if (hasComponent<TransformComponent>()) {
+		m_transformComponent = getComponent<TransformComponent>();
+	}
+}
+
 void RenderComponent::update(float deltaTime) {
-	m_sprite.setPosition(getTransformComponent()->getPosition());
+	m_sprite.setPosition(m_transformComponent.lock()->getPosition());
 	m_window->draw(m_sprite);
 }
 

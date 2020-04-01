@@ -26,7 +26,7 @@ public:
 
 	void freeOrphanResources() {
 		for (auto iter = m_resources.begin(); iter != m_resources.end();) {
-			if (iter->second.unique()) {
+			if (iter->second.use_count() == 1) {
 				iter = m_resources.erase(iter);
 			}
 			else {

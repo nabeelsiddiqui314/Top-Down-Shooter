@@ -1,5 +1,4 @@
 #include "IComponent.h"
-#include "../Entity/Entity.h"
 #include "../Entity/Blueprints/IBlueprint.h"
 #include "../Entity/EntityManager.h"
 
@@ -26,8 +25,4 @@ void IComponent::addEntityFromBlueprint(std::unique_ptr<IBlueprint>& bluePrint) 
 		auto entityManager = parent->getEntityManager().lock();
 		entityManager->addEntity(bluePrint->getEntity());
 	}
-}
-
-std::shared_ptr<TransformComponent> IComponent::getTransformComponent() const {
-	return m_parent.lock()->getTransformComponent();
 }

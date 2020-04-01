@@ -11,23 +11,18 @@ EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak
    m_entityManager(entityManager) {}
 
 std::shared_ptr<Entity> EntityFactory::createPlayer() const {
-	auto player = std::make_shared<Entity>(m_entityManager, 300, 400);
-	
-	auto renderComp = std::make_shared<RenderComponent>(player, m_window, "player.png");
+	auto player = std::make_shared<Entity>(m_entityManager);
 
 	Animator::AnimationInfo animationInfo;
 	animationInfo.width = 100;
 	animationInfo.height = 100;
 	animationInfo.columns = {4, 4, 4, 4};
 
-	auto animationComp = std::make_shared<AnimationComponent>(player, animationInfo);
-	auto controllerComp = std::make_shared<ControllerComponent>(player, 100);
-	auto gunComp = std::make_shared<GunComponent>(player, m_window);
-
-	player->registerComponent(renderComp);
-	player->registerComponent(animationComp);
-	player->registerComponent(controllerComp);
-	player->registerComponent(gunComp);
+	player->addComponent<TransformComponent>(player, 300, 400);
+	player->addComponent<RenderComponent>(player, m_window, "player.png");
+	player->addComponent<AnimationComponent>(player, animationInfo);
+	player->addComponent<ControllerComponent>(player, 100);
+	player->addComponent<GunComponent>(player, m_window);
 
 	return player;
 }

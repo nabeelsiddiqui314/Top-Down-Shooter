@@ -3,6 +3,7 @@
 #include <algorithm>
 
 void EntityManager::addEntity(std::shared_ptr<Entity> entity) {
+	entity->initComponents();
 	m_entities.push_back(entity);
 }
 
