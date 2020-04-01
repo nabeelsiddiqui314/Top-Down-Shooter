@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 
 class TransformComponent;
+class AnimationComponent;
 
 class RenderComponent : public IComponent {
 public:
@@ -12,11 +13,10 @@ public:
 public:
 	void init() override;
 	void update(float deltaTime) override;
-
-	void handleEvent(const TextureRectEvent& event) override;
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;
 	sf::Sprite m_sprite;
 	std::shared_ptr<sf::Texture> m_texture;
 	std::weak_ptr<TransformComponent> m_transformComponent;
+	std::weak_ptr<AnimationComponent> m_animationComponent;
 };

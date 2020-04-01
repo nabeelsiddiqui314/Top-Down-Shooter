@@ -169,9 +169,7 @@
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactory.h" />
     <ClInclude Include="src\Entity\EntityManager.h" />
-    <ClInclude Include="src\Events\AnimationEvent.h" />
     <ClInclude Include="src\Events\GunFireEvent.h" />
-    <ClInclude Include="src\Events\TextureRectEvent.h" />
     <ClInclude Include="src\Utilities\Animator.h" />
     <ClInclude Include="src\Utilities\ResourceContainer.h" />
     <ClInclude Include="src\Utilities\ResourceManager.h" />

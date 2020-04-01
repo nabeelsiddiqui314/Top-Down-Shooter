@@ -1,8 +1,8 @@
 #include "RenderComponent.h"
 #include "../Utilities/ResourceManager.h"
 #include <SFML/Graphics/Texture.hpp>
-#include "../Events/TextureRectEvent.h"
 #include "../Components/TransformComponent.h"
+#include "../Components/AnimationComponent.h"
 
 RenderComponent::RenderComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const std::string& textureName)
  : IComponent(parent),
@@ -17,13 +17,20 @@ void RenderComponent::init() {
 	if (hasComponent<TransformComponent>()) {
 		m_transformComponent = getComponent<TransformComponent>();
 	}
+	if (hasComponent<AnimationComponent>()) {
+		m_animationComponent = getComponent<AnimationComponent>();
+	}
 }
 
 void RenderComponent::update(float deltaTime) {
-	m_sprite.setPosition(m_transformComponent.lock()->getPosition());
-	m_window->draw(m_sprite);
-}
+	auto animationComponent = m_animationComponent.lock();
+	if (animationComponent) {
+		m_sprite.setTextureRect(animationComponent->getFrame());
+	}
 
-void RenderComponent::handleEvent(const TextureRectEvent& event) {
-	m_sprite.setTextureRect(event.rect);
+	auto transformComponent = m_transformComponent.lock();
+	if (transformComponent) {
+		m_sprite.setPosition(transformComponent->getPosition());
+		m_window->draw(m_sprite);
+	}
 }

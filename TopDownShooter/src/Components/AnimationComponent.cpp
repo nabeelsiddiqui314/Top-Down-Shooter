@@ -1,28 +1,34 @@
 #include "AnimationComponent.h"
-#include "../Events/TextureRectEvent.h"
 
 AnimationComponent::AnimationComponent(std::weak_ptr<Entity> parent, const Animator::AnimationInfo& animInfo)
 	: IComponent(parent),
 	m_animator(animInfo)  {
-	TextureRectEvent textureRectEvent;
-	textureRectEvent.rect = m_animator.getFrame(m_data.row, m_data.column);
-
-	dispatchEventToParent(textureRectEvent);
+	m_currentFrame = m_animator.getFrame(m_row, m_column);
 }
 
 void AnimationComponent::update(float deltaTime) {
-	TextureRectEvent textureRectEvent;
-
-	if (m_data.shouldAnimate) {
-		textureRectEvent.rect = m_animator.animate(m_data.column, m_data.interval);
+	if (m_shouldAnimate) {
+		m_currentFrame = m_animator.animate(m_column, m_interval);
 	}
 	else {
-		textureRectEvent.rect = m_animator.getFrame(m_data.row, m_data.column);
+		m_currentFrame = m_animator.getFrame(m_row, m_column);
 	}
-
-	dispatchEventToParent(textureRectEvent);
 }
 
-void AnimationComponent::handleEvent(const AnimationEvent& event) {
-	m_data = event.data;
+void AnimationComponent::setAnimationColumn(int column) {
+	m_column = column;
+	m_shouldAnimate = true;
+}
+
+void AnimationComponent::setStillFrame(int row, int column) {
+	m_currentFrame = m_animator.getFrame(row, column);
+	m_shouldAnimate = false;
+}
+
+bool AnimationComponent::shouldAnimate() const {
+	return m_shouldAnimate;
+}
+
+const sf::IntRect& AnimationComponent::getFrame() const {
+	return m_currentFrame;
 }
