@@ -22,6 +22,7 @@ std::shared_ptr<Entity> BulletBlueprint::getEntity() {
 	auto renderComponent = std::make_shared<RenderComponent>(bullet, m_window, m_textureName);
 	auto timedLifetimeComponent = std::make_shared<TimedLifetimeComponent>(bullet, 7);
 
+	bullet->setTransformComponent(transformComponent);
 	bullet->registerComponent(transformComponent);
 	bullet->registerComponent(projectileComponent);
 	bullet->registerComponent(renderComponent);

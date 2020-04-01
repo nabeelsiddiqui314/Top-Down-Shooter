@@ -4,6 +4,7 @@
 
 class Entity;
 class IBlueprint;
+class TransformComponent;
 
 class IComponent : public IEventHandler {
 public:
@@ -15,6 +16,7 @@ public:
 protected:
 	void destroyParent();
 	void addEntityFromBlueprint(std::unique_ptr<IBlueprint>& bluePrint);
+	std::shared_ptr<TransformComponent> getTransformComponent() const;
 private:
 	std::weak_ptr<Entity> m_parent;
 };

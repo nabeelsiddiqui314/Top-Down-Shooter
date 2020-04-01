@@ -33,6 +33,14 @@ std::weak_ptr<EntityManager> Entity::getEntityManager() const {
 	return m_entityManager;
 }
 
+void Entity::setTransformComponent(std::shared_ptr<TransformComponent> transform) {
+	m_transformComponent = transform;
+}
+
+std::shared_ptr<TransformComponent> Entity::getTransformComponent() const {
+	return m_transformComponent;
+}
+
 void Entity::destroy() {
 	m_shouldDestroy = true;
 }

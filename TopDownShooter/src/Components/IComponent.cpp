@@ -27,3 +27,7 @@ void IComponent::addEntityFromBlueprint(std::unique_ptr<IBlueprint>& bluePrint) 
 		entityManager->addEntity(bluePrint->getEntity());
 	}
 }
+
+std::shared_ptr<TransformComponent> IComponent::getTransformComponent() const {
+	return m_parent.lock()->getTransformComponent();
+}

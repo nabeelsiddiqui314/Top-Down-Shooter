@@ -9,8 +9,8 @@ public:
 	~TransformComponent() = default;
 public:
 	void update(float deltaTime) override;
-
-	void handleEvent(const TransformEvent& event) override;
+	void setVelocity(float x, float y);
+	const sf::Vector2f& getPosition() const;
 private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;

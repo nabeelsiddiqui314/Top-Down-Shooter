@@ -25,7 +25,7 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	auto controllerComp = std::make_shared<ControllerComponent>(player, 100);
 	auto gunComp = std::make_shared<GunComponent>(player, m_window);
 
-
+	player->setTransformComponent(transformComp);
 	player->registerComponent(transformComp);
 	player->registerComponent(renderComp);
 	player->registerComponent(animationComp);

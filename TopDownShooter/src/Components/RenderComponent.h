@@ -10,7 +10,6 @@ public:
 public:
 	void update(float deltaTime) override;
 
-	void handleEvent(const TransformEvent& event) override;
 	void handleEvent(const TextureRectEvent& event) override;
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;
