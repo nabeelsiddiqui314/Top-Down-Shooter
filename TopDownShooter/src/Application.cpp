@@ -19,7 +19,7 @@ void Application::execute() {
 			}
 		}
 
-		m_window->clear();
+		m_window->clear(sf::Color(200, 200, 200));
 
 		m_stateMachine.update(m_deltaTimeclock.getElapsedTime().asSeconds());
 		m_deltaTimeclock.restart();

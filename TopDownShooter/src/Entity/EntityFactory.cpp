@@ -20,7 +20,7 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 
 	player->addComponent<TransformComponent>(player, 300, 400);
 	player->addComponent<RenderComponent>(player, m_window, "player.png");
-	player->addComponent<AnimationComponent>(player, animationInfo);
+	//player->addComponent<AnimationComponent>(player, animationInfo);
 	player->addComponent<ControllerComponent>(player, 100);
 	player->addComponent<GunComponent>(player, m_window);
 
