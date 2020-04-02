@@ -14,10 +14,25 @@ void TransformComponent::update(float deltaTime) {
 }
 
 void TransformComponent::setVelocity(float x, float y) {
-	m_velocity.x = x;
-	m_velocity.y = y;
+	m_velocity = {x, y};
 }
 
 const sf::Vector2f& TransformComponent::getPosition() const {
 	return m_position;
+}
+
+void TransformComponent::setOrigin(float x, float y) {
+	m_origin = {x, y};
+}
+
+const sf::Vector2f& TransformComponent::getOrigin() const {
+	return m_origin;
+}
+
+void TransformComponent::setRotation(float angle) {
+	m_rotation = angle;
+}
+
+float TransformComponent::getRotation() const {
+	return m_rotation;
 }

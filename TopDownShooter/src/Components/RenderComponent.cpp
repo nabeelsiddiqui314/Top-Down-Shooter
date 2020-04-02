@@ -30,7 +30,9 @@ void RenderComponent::update(float deltaTime) {
 
 	auto transformComponent = m_transformComponent.lock();
 	if (transformComponent) {
+		m_sprite.setOrigin(transformComponent->getOrigin());
 		m_sprite.setPosition(transformComponent->getPosition());
+		m_sprite.setRotation(transformComponent->getRotation());
 		m_window->draw(m_sprite);
 	}
 }

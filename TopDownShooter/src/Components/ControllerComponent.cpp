@@ -3,14 +3,17 @@
 #include <SFML/Window/Mouse.hpp>
 #include "../Components/TransformComponent.h"
 #include "../Events/GunFireEvent.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
-ControllerComponent::ControllerComponent(std::weak_ptr<Entity> parent, float speed)
- : IComponent(parent),
+ControllerComponent::ControllerComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, float speed)
+	: IComponent(parent),
+	  m_window(window),
    m_speed(speed) {}
 
 void ControllerComponent::init() {
 	if (hasComponent<TransformComponent>()) {
 		m_transformComponent = getComponent<TransformComponent>();
+		m_transformComponent.lock()->setOrigin(30, 33);
 	}
 }
 
@@ -31,16 +34,23 @@ void ControllerComponent::update(float deltaTime) {
 		m_wasPressed = false;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		m_transformComponent.lock()->setVelocity(0, -m_speed);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		m_transformComponent.lock()->setVelocity(-m_speed, 0);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		m_transformComponent.lock()->setVelocity(0, m_speed);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		m_transformComponent.lock()->setVelocity(m_speed, 0 );
+	auto transformComponent = m_transformComponent.lock();
+	if (transformComponent) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+			transformComponent->setVelocity(0, -m_speed);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+			transformComponent->setVelocity(-m_speed, 0);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+			transformComponent->setVelocity(0, m_speed);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+			transformComponent->setVelocity(m_speed, 0);
+		}
+
+		sf::Vector2f toMouse = { sf::Mouse::getPosition(*m_window).x - transformComponent->getPosition().x,
+			                     sf::Mouse::getPosition(*m_window).y - transformComponent->getPosition().y };
+		transformComponent->setRotation(atan2f(toMouse.y, toMouse.x) * 57.2958);
 	}
 }
