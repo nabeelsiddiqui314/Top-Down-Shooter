@@ -155,5 +155,8 @@
     <ClInclude Include="src\Entity\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Subsystems\ISubSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
