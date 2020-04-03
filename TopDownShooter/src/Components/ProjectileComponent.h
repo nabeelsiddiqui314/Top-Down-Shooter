@@ -6,12 +6,13 @@ class TransformComponent;
 
 class ProjectileComponent : public IComponent {
 public:
-	ProjectileComponent(std::weak_ptr<Entity> parent, float velocityX, float velocityY);
+	ProjectileComponent(std::weak_ptr<Entity> parent, float velocity, float rotation);
 	~ProjectileComponent() = default;
 public:
 	void init() override;
 	void update(float deltaTime) override;
 private:
-	const sf::Vector2f m_velocity;
+	const float m_velocity;
+	const float m_rotation;
 	std::weak_ptr<TransformComponent> m_transformComponent;
 };

@@ -30,7 +30,7 @@ const sf::Vector2f& TransformComponent::getOrigin() const {
 }
 
 void TransformComponent::setRotation(float angle) {
-	m_rotation = angle;
+	m_rotation = angle * 57.2958;
 }
 
 float TransformComponent::getRotation() const {

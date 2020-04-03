@@ -18,24 +18,10 @@ void ControllerComponent::init() {
 }
 
 void ControllerComponent::update(float deltaTime) {
-	m_transformComponent.lock()->setVelocity(0, 0);
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-		if (!m_wasPressed) {
-			GunFireEvent fireEvent;
-			fireEvent.pos = m_transformComponent.lock()->getPosition();
-			fireEvent.velocity = { 100.0f, 0.0f };
-			fireEvent.bulletTexture = "bullet.png";
-			dispatchEventToParent(fireEvent);
-			m_wasPressed = true;
-		}
-	}
-	else {
-		m_wasPressed = false;
-	}
-
 	auto transformComponent = m_transformComponent.lock();
 	if (transformComponent) {
+		transformComponent->setVelocity(0, 0);
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 			transformComponent->setVelocity(0, -m_speed);
 		}
@@ -50,7 +36,24 @@ void ControllerComponent::update(float deltaTime) {
 		}
 
 		sf::Vector2f toMouse = { sf::Mouse::getPosition(*m_window).x - transformComponent->getPosition().x,
-			                     sf::Mouse::getPosition(*m_window).y - transformComponent->getPosition().y };
-		transformComponent->setRotation(atan2f(toMouse.y, toMouse.x) * 57.2958);
+			sf::Mouse::getPosition(*m_window).y - transformComponent->getPosition().y };
+
+		float rotation = atan2f(toMouse.y, toMouse.x);
+		transformComponent->setRotation(rotation);
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+			if (!m_wasPressed) {
+				GunFireEvent fireEvent;	
+				fireEvent.pos = transformComponent->getPosition();
+				fireEvent.rotation = rotation;
+				fireEvent.velocity = 100.0f;
+				fireEvent.bulletTexture = "bullet.png";
+				dispatchEventToParent(fireEvent);
+				m_wasPressed = true;
+			}
+		}
+		else {
+			m_wasPressed = false;
+		}
 	}
 }

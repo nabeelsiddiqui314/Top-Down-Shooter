@@ -7,7 +7,8 @@
 class GunFireEvent : public Event {
 public:
 	sf::Vector2f pos;
-	sf::Vector2f velocity;
+	float rotation;
+	float velocity;
 	std::string bulletTexture;
 
 	void dispatch(IEventHandler& handler) override {
