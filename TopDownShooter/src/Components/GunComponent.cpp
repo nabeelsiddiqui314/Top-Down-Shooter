@@ -1,6 +1,7 @@
 #include "GunComponent.h"
 #include "../Entity/Blueprints/BulletBlueprint.h"
 #include "../Events/GunFireEvent.h"
+#include "TransformComponent.h"
 
 GunComponent::GunComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const sf::Vector2f& relativePos)
 	: IComponent(parent),
@@ -8,17 +9,28 @@ GunComponent::GunComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::Ren
 	  m_window(window),
       m_relativePosition(relativePos) {}
 
+void GunComponent::init() {
+	if (hasComponent<TransformComponent>()) {
+		m_transformComponent = getComponent<TransformComponent>();
+	}
+}
+
 void GunComponent::update(float deltaTime) {}
 
 void GunComponent::handleEvent(const GunFireEvent& fireEvent) {
-	sf::Vector2f pos;
-	pos.x = m_relativePosition.x * cosf(fireEvent.rotation) - m_relativePosition.y * sinf(fireEvent.rotation);
-	pos.y = m_relativePosition.x * sinf(fireEvent.rotation) + m_relativePosition.y * cosf(fireEvent.rotation);
+	auto transformComponent = m_transformComponent.lock();
+	if (transformComponent) {
+		sf::Vector2f pos;
+		float rotation = transformComponent->getRotation() / 57.2958;
 
-	pos.x += fireEvent.pos.x;
-	pos.y += fireEvent.pos.y;
+		pos.x = m_relativePosition.x * cosf(rotation) - m_relativePosition.y * sinf(rotation);
+		pos.y = m_relativePosition.x * sinf(rotation) + m_relativePosition.y * cosf(rotation);
 
-	std::unique_ptr<IBlueprint> bulletBlueprint = 
-		std::make_unique<BulletBlueprint>(m_parent, m_window, pos, fireEvent.rotation, fireEvent.velocity, fireEvent.bulletTexture);
-	addEntityFromBlueprint(bulletBlueprint);
+		pos.x += transformComponent->getPosition().x;
+		pos.y += transformComponent->getPosition().y;
+
+		std::unique_ptr<IBlueprint> bulletBlueprint =
+			std::make_unique<BulletBlueprint>(m_parent, m_window, pos, rotation, fireEvent.velocity, fireEvent.bulletName);
+		addEntityFromBlueprint(bulletBlueprint);
+	}
 }

@@ -2,6 +2,7 @@
 
 class Event;
 class GunFireEvent;
+class MoveEvent;
 
 class IEventHandler {
 public:
@@ -10,4 +11,5 @@ public:
 public:
 	virtual void handleEvent(const Event&) {};
 	virtual void handleEvent(const GunFireEvent&) {};
+	virtual void handleEvent(const MoveEvent&) {};
 };

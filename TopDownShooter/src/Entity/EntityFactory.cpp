@@ -5,6 +5,7 @@
 #include "../Components/AnimationComponent.h"
 #include "../Components/ControllerComponent.h"
 #include "../Components/GunComponent.h"
+#include "../Components/MovementComponent.h"
 
 EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
  : m_window(window),
@@ -19,8 +20,9 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	animationInfo.columns = {4, 4, 4, 4};
 
 	player->addComponent<TransformComponent>(player, 300, 400);
+	player->addComponent<MovementComponent>(player, sf::Vector2f(30.0f, 33.0f), 100.0f);
 	player->addComponent<RenderComponent>(player, m_window, "player.png");
-	player->addComponent<ControllerComponent>(player, m_window, 100);
+	player->addComponent<ControllerComponent>(player, m_window);
 	player->addComponent<GunComponent>(player, m_window, sf::Vector2f(74.0f, 14.0f));
 
 	return player;

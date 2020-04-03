@@ -5,16 +5,19 @@
 namespace sf {
 	class RenderWindow;
 }
+class TransformComponent;
 
 class GunComponent : public IComponent {
 public:
 	GunComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, const sf::Vector2f& relativePos);
 	~GunComponent() = default;
 public:
+	void init() override;
 	void update(float deltaTime) override;
 	void handleEvent(const GunFireEvent& fireEvent) override;
 private:
 	const std::weak_ptr<Entity> m_parent;
 	const std::shared_ptr<sf::RenderWindow> m_window;
 	const sf::Vector2f m_relativePosition;
+	std::weak_ptr<TransformComponent> m_transformComponent;
 };

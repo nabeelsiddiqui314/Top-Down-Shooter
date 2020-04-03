@@ -137,6 +137,7 @@
     <ClCompile Include="src\Components\GunComponent.cpp" />
     <ClCompile Include="src\Components\IComponent.cpp" />
     <ClCompile Include="src\Components\ControllerComponent.cpp" />
+    <ClCompile Include="src\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Components\ProjectileComponent.cpp" />
     <ClCompile Include="src\Components\RenderComponent.cpp" />
     <ClCompile Include="src\Components\TimedLifetimeComponent.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\Components\GunComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\ControllerComponent.h" />
+    <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Components\ProjectileComponent.h" />
     <ClInclude Include="src\Components\RenderComponent.h" />
     <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
@@ -170,6 +172,7 @@
     <ClInclude Include="src\Entity\EntityFactory.h" />
     <ClInclude Include="src\Entity\EntityManager.h" />
     <ClInclude Include="src\Events\GunFireEvent.h" />
+    <ClInclude Include="src\Events\MoveEvent.h" />
     <ClInclude Include="src\Subsystems\ISubSystem.h" />
     <ClInclude Include="src\Utilities\Animator.h" />
     <ClInclude Include="src\Utilities\ResourceContainer.h" />
