@@ -171,6 +171,7 @@
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactory.h" />
     <ClInclude Include="src\Entity\EntityManager.h" />
+    <ClInclude Include="src\Events\EventChannel.h" />
     <ClInclude Include="src\Events\GunFireEvent.h" />
     <ClInclude Include="src\Events\MoveEvent.h" />
     <ClInclude Include="src\Subsystems\ISubSystem.h" />
