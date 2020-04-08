@@ -133,23 +133,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Components\AnimationComponent.cpp" />
-    <ClCompile Include="src\Components\GunComponent.cpp" />
-    <ClCompile Include="src\Components\IComponent.cpp" />
-    <ClCompile Include="src\Components\ControllerComponent.cpp" />
-    <ClCompile Include="src\Components\MovementComponent.cpp" />
-    <ClCompile Include="src\Components\ProjectileComponent.cpp" />
-    <ClCompile Include="src\Components\RenderComponent.cpp" />
-    <ClCompile Include="src\Components\TimedLifetimeComponent.cpp" />
-    <ClCompile Include="src\Components\TransformComponent.cpp" />
-    <ClCompile Include="src\Entity\Blueprints\BulletBlueprint.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactory.cpp" />
-    <ClCompile Include="src\Entity\EntityManager.cpp" />
     <ClCompile Include="src\Utilities\Animator.cpp" />
     <ClCompile Include="src\Utilities\ResourceManager.cpp" />
-    <ClCompile Include="src\Entity\Entity.cpp" />
-    <ClCompile Include="src\Events\Event.cpp" />
     <ClCompile Include="src\States\MenuState.cpp" />
     <ClCompile Include="src\States\GameState.cpp" />
     <ClCompile Include="src\Application.cpp" />
@@ -157,30 +144,12 @@
     <ClCompile Include="src\States\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Components\AnimationComponent.h" />
-    <ClInclude Include="src\Components\GunComponent.h" />
-    <ClInclude Include="src\Components\IComponent.h" />
-    <ClInclude Include="src\Components\ControllerComponent.h" />
-    <ClInclude Include="src\Components\MovementComponent.h" />
-    <ClInclude Include="src\Components\ProjectileComponent.h" />
-    <ClInclude Include="src\Components\RenderComponent.h" />
-    <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
-    <ClInclude Include="src\Components\TransformComponent.h" />
-    <ClInclude Include="src\Entity\Blueprints\BulletBlueprint.h" />
-    <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactory.h" />
-    <ClInclude Include="src\Entity\EntityManager.h" />
     <ClInclude Include="src\Events\EventChannel.h" />
-    <ClInclude Include="src\Events\GunFireEvent.h" />
-    <ClInclude Include="src\Events\MoveEvent.h" />
-    <ClInclude Include="src\Subsystems\ISubSystem.h" />
     <ClInclude Include="src\Utilities\Animator.h" />
     <ClInclude Include="src\Utilities\ResourceContainer.h" />
     <ClInclude Include="src\Utilities\ResourceManager.h" />
-    <ClInclude Include="src\Entity\Entity.h" />
-    <ClInclude Include="src\Events\Event.h" />
-    <ClInclude Include="src\Events\IEventHandler.h" />
     <ClInclude Include="src\States\MenuState.h" />
     <ClInclude Include="src\States\GameState.h" />
     <ClInclude Include="src\States\IState.h" />
