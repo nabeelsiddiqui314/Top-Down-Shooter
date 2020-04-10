@@ -1,13 +1,18 @@
 #pragma once
 #include <array>
 #include <unordered_map>
-#include "EcsTypes.h"
 #include <cassert>
+#include "IComponentContainer.h"
+#include "EcsTypes.h"
 
 template <typename T>
-class ComponentContainer {
+class ComponentContainer : public IComponentContainer {
 public:
-	ComponentContainer() = default;
+	ComponentContainer(ECS_Events& events) {
+		events.subscribe<EntityDestroyedEvent>([&](const auto& event) {
+			removeEntity(event.entity);
+		});
+	}
 	~ComponentContainer() = default;
 public:
 	void addComponent(Entity_ID entity, const T& component) {

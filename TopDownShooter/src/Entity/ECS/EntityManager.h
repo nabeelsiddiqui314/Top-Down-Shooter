@@ -3,10 +3,10 @@
 #include <queue>
 #include "EcsTypes.h"
 
-class EntityManger {
+class EntityManager {
 public:
-	EntityManger() = default;
-	~EntityManger() = default;
+	EntityManager() = default;
+	~EntityManager() = default;
 public:
 	Entity_ID createEntity();
 	void destroyEntity(Entity_ID entity);

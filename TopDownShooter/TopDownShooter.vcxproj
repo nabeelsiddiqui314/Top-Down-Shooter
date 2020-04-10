@@ -133,7 +133,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entity\ECS\ComponentIdGenerator.cpp" />
+    <ClCompile Include="src\Entity\ECS\ComponentRegistry.cpp" />
+    <ClCompile Include="src\Entity\ECS\Entity.cpp" />
     <ClCompile Include="src\Entity\ECS\EntityManager.cpp" />
+    <ClCompile Include="src\Entity\ECS\System.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactory.cpp" />
     <ClCompile Include="src\Utilities\Animator.cpp" />
@@ -146,9 +150,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entity\ECS\ComponentContainer.h" />
+    <ClInclude Include="src\Entity\ECS\ComponentIdGenerator.h" />
     <ClInclude Include="src\Entity\ECS\ComponentRegistry.h" />
+    <ClInclude Include="src\Entity\ECS\ECS.h" />
     <ClInclude Include="src\Entity\ECS\EcsTypes.h" />
+    <ClInclude Include="src\Entity\ECS\Entity.h" />
     <ClInclude Include="src\Entity\ECS\EntityManager.h" />
+    <ClInclude Include="src\Entity\ECS\IComponentContainer.h" />
+    <ClInclude Include="src\Entity\ECS\System.h" />
     <ClInclude Include="src\Entity\Entities.h" />
     <ClInclude Include="src\Entity\EntityFactory.h" />
     <ClInclude Include="src\Events\EventChannel.h" />
