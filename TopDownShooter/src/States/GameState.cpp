@@ -15,7 +15,7 @@ GameState::~GameState() {
 }
 
 void GameState::init(StateMachine* stateMachine) {
-	m_entities = std::make_unique<Entities>();
+	m_entities = std::make_unique<Entities>(stateMachine->getWindow());
 	m_entities->create();
 }
 
