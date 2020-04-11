@@ -3,17 +3,17 @@
 
 class Entity;
 
-class System {
+class ISystem {
 public:
-	System() = default;
-	~System() = default;
+	ISystem() = default;
+	~ISystem() = default;
 private:
 	using SystemEntities = std::set<Entity>;
 public:
 	virtual void update(float deltaTime) = 0;
 
 	void addEntity(const Entity& entity);
-	void removeEntity(Entity& entity);
+	void removeEntity(const Entity& entity);
 protected:
 	SystemEntities m_entities;
 };

@@ -8,11 +8,7 @@
 template <typename T>
 class ComponentContainer : public IComponentContainer {
 public:
-	ComponentContainer(ECS_Events& events) {
-		events.subscribe<EntityDestroyedEvent>([&](const auto& event) {
-			removeEntity(event.entity);
-		});
-	}
+	ComponentContainer() = default;
 	~ComponentContainer() = default;
 public:
 	void addComponent(Entity_ID entity, const T& component) {
@@ -25,7 +21,16 @@ public:
 		m_componentArray[index] = component;
 	}
 
-	void removeEntity(Entity_ID entity) {
+	bool hasComponent(Entity_ID entity) {
+		return m_entityToIndexMap.find(entity) != m_entityToIndexMap.end();
+	}
+
+	T& getComponent(Entity_ID entity) {
+		assert(hasComponent(entity), "Trying to access a component that the entity does not possess");
+		return m_componentArray[m_entityToIndexMap[entity]];
+	}
+
+	void removeEntity(Entity_ID entity) override {
 		if (hasComponent(entity)) {
 			std::size_t replacementIndex = m_entityToIndexMap.at(entity);
 			m_componentArray[replacementIndex] = m_componentArray[m_lastComponentIndex];
@@ -39,15 +44,6 @@ public:
 
 			m_lastComponentIndex--;
 		}
-	}
-
-	bool hasComponent(Entity_ID entity) {
-		return m_entityToIndexMap.find(entity) != m_entityToIndexMap.end();
-	}
-
-	T& getComponent(Entity_ID entity) {
-		assert(hasComponent(entity), "Trying to access a component that the entity does not possess");
-		return m_componentArray[m_entityToIndexMap[entity]];
 	}
 private:
 	std::array<T, COMPONENTS_LIMIT> m_componentArray;

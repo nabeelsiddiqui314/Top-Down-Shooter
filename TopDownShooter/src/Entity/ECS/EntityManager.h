@@ -12,9 +12,9 @@ public:
 	void destroyEntity(Entity_ID entity);
 	
 	void setComponentFlag(Entity_ID entity, Component_ID component, bool value);
-	const ComponentBitset getComponentBitmask(Entity_ID entity) const;
+	const ComponentList getComponentList(Entity_ID entity) const;
 private:
-	std::vector<ComponentBitset> m_componentBitsets;
+	std::vector<ComponentList> m_componentLists;
 	Entity_ID m_lastNewEntity = 0;
 	std::queue<Entity_ID> m_unusedEntityQueue;
 };

@@ -1,12 +1,13 @@
 #pragma once
+#include <memory>
 #include <unordered_map>
-#include "ComponentContainer.h"
 #include "ComponentIdGenerator.h"
 #include "EcsTypes.h"
+#include "ComponentContainer.h"
 
 class ComponentRegistry {
 public:
-	ComponentRegistry(ECS_Events& events);
+	ComponentRegistry() = default;
 	~ComponentRegistry() = default;
 public:
 	template <typename T>
@@ -41,5 +42,4 @@ private:
 	}
 private:
 	std::unordered_map<Component_ID, std::shared_ptr<IComponentContainer>> m_componentIndexMap;
-	ECS_Events& m_events;
 };
