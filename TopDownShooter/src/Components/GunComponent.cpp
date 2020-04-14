@@ -10,9 +10,7 @@ GunComponent::GunComponent(std::weak_ptr<Entity> parent, std::shared_ptr<sf::Ren
       m_relativePosition(relativePos) {}
 
 void GunComponent::init() {
-	if (hasComponent<TransformComponent>()) {
-		m_transformComponent = getComponent<TransformComponent>();
-	}
+
 }
 
 void GunComponent::update(float deltaTime) {}

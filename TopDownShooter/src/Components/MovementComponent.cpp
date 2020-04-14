@@ -9,10 +9,7 @@ MovementComponent::MovementComponent(std::weak_ptr<Entity> parent, const sf::Vec
    m_origin(origin) {}
 
 void MovementComponent::init() {
-	if (hasComponent<TransformComponent>()) {
-		m_transformComponent = getComponent<TransformComponent>();
-		m_transformComponent.lock()->setOrigin(m_origin.x, m_origin.y);
-	}
+
 }
 
 void MovementComponent::update(float deltaTime) {}

@@ -2,7 +2,6 @@
 #include "../Events/Event.h"
 #include "../Components/IComponent.h"
 #include "EntityManager.h"
-#include "../Components/TransformComponent.h"
 
 Entity::Entity(std::weak_ptr<EntityManager> entityManager) 
 	: m_entityManager(entityManager) {}

@@ -14,12 +14,6 @@ RenderComponent::RenderComponent(std::weak_ptr<Entity> parent, std::shared_ptr<s
 }
 
 void RenderComponent::init() {
-	if (hasComponent<TransformComponent>()) {
-		m_transformComponent = getComponent<TransformComponent>();
-	}
-	if (hasComponent<AnimationComponent>()) {
-		m_animationComponent = getComponent<AnimationComponent>();
-	}
 }
 
 void RenderComponent::update(float deltaTime) {

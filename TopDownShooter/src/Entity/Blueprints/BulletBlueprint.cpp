@@ -24,10 +24,10 @@ std::shared_ptr<Entity> BulletBlueprint::getEntity() {
 	bullet->addComponent<ProjectileComponent>(bullet, m_velocity, m_rotation);
 	bullet->addComponent<RenderComponent>(bullet, m_window, m_textureName);
 	bullet->addComponent<TimedLifetimeComponent>(bullet, 7);
-
-	auto transform = bullet->getComponent<TransformComponent>().lock();
-	auto texture = ResourceManager::getInstance().textureContainer.aquire(m_textureName);
-	transform->setOrigin(0, texture->getSize().y / 2);
-	transform->setRotation(m_rotation);
+	
+	//auto transform = bullet->getComponent<TransformComponent>().lock();
+	//auto texture = ResourceManager::getInstance().textureContainer.aquire(m_textureName);
+	//transform->setOrigin(0, texture->getSize().y / 2);
+	//transform->setRotation(m_rotation);
 	return bullet;
 }

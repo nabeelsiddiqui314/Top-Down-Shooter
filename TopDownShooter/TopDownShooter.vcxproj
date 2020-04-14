@@ -157,6 +157,7 @@
     <ClCompile Include="src\States\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Attributes\IAttribute.h" />
     <ClInclude Include="src\Components\AnimationComponent.h" />
     <ClInclude Include="src\Components\GunComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="src\Components\RenderComponent.h" />
     <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
     <ClInclude Include="src\Components\TransformComponent.h" />
+    <ClInclude Include="src\Attributes\AttributeManager.h" />
     <ClInclude Include="src\Entity\Blueprints\BulletBlueprint.h" />
     <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />
     <ClInclude Include="src\Entity\Entities.h" />

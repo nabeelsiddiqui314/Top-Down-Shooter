@@ -170,5 +170,11 @@
     <ClInclude Include="src\Events\EventChannel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Attributes\IAttribute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Attributes\AttributeManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
