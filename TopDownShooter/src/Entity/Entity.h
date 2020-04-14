@@ -1,9 +1,10 @@
 #pragma once
 #include <memory>
 #include <vector>
-#include <bitset>
 #include <array>
 #include <type_traits>
+#include <unordered_map>
+#include <cassert>
 
 class Event;
 class EntityManager;
@@ -11,7 +12,6 @@ class IComponent;
 
 class Entity {
 	typedef std::shared_ptr<IComponent> IComponentPtr;
-	typedef std::bitset<16> ComponentBitset;
 	typedef std::size_t ComponentID;
 public:
 	Entity(std::weak_ptr<EntityManager> entityManager);
@@ -24,9 +24,9 @@ public:
 	void addComponent(Args&&... args) {		
 		auto componentID = getComponentID<T>();
 
-		if (!m_componentBitset[componentID]) {
-			m_componentBitset[componentID] = true;
+		if (!hasComponent<T>()) {
 			auto component = std::make_shared<T>(std::forward<Args>(args)...);
+			m_componentIndexMap.emplace(std::make_pair(componentID, m_components.size()));
 			m_components.push_back(component);
 		}
 	}
@@ -34,13 +34,14 @@ public:
 	template <typename T>
 	bool hasComponent() {
 		auto componentID = getComponentID<T>();
-		return m_componentBitset[componentID];
+		return m_componentIndexMap.find(componentID) != m_componentIndexMap.end();
 	}
 
 	template <typename T>
 	std::weak_ptr<T> getComponent() {
 		auto componentID = getComponentID<T>();
-		return std::static_pointer_cast<T>(m_components[componentID]);
+		assert(hasComponent<T>(), "Trying to fetch invalid component");
+		return std::static_pointer_cast<T>(m_components[m_componentIndexMap.at(componentID)]);
 	}
 
 	void update(float deltaTime);
@@ -62,7 +63,7 @@ private:
 	}
 private:
 	std::vector<IComponentPtr> m_components;
-	ComponentBitset m_componentBitset;
+	std::unordered_map<ComponentID, std::size_t> m_componentIndexMap;
 	std::weak_ptr<EntityManager> m_entityManager;
 	bool m_shouldDestroy = false;
 };
