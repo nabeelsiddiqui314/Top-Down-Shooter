@@ -1,8 +1,8 @@
 #include "BulletBlueprint.h"
-#include "../Entity.h"
 #include "../../Utilities/ResourceManager.h"
 #include <SFML/Graphics/Texture.hpp>
 #include "../../Components/IComponent.h"
+#include "../Entity.h"
 
 BulletBlueprint::BulletBlueprint(std::weak_ptr<Entity> parent, std::shared_ptr<sf::RenderWindow> window, 
 	const sf::Vector2f& pos, const float rotation, const float velocity, const std::string& textureName)
