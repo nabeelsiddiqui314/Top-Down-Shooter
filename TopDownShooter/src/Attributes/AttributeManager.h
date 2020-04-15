@@ -50,6 +50,6 @@ private:
 		return ID;
 	}
 private:
-	std::vector<IAttribute> m_attributes;
+	std::vector<AttributePtr> m_attributes;
 	std::unordered_map<AttributeID, std::size_t> m_attributeIndexMap;
 };
