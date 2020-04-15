@@ -1,10 +1,6 @@
 #include "Entity.h"
-#include "../Events/Event.h"
 #include "../Components/IComponent.h"
-#include "EntityManager.h"
-
-Entity::Entity(std::weak_ptr<EntityManager> entityManager) 
-	: m_entityManager(entityManager) {}
+#include "../Attributes/AttributeManager.h"
 
 void Entity::initComponents() {
 	for (auto& comonent : m_components) {
@@ -12,20 +8,14 @@ void Entity::initComponents() {
 	}
 }
 
-void Entity::dispatchEvent(Event& event) {
-	for (auto& comonent : m_components) {
-		event.dispatch(*comonent);
-	}
+std::weak_ptr<AttributeManager> Entity::getAttributeManager() const {
+	return m_attributes;
 }
 
 void Entity::update(float deltaTime) {
 	for	(auto& component : m_components) {
 		component->update(deltaTime);
 	}
-}
-
-std::weak_ptr<EntityManager> Entity::getEntityManager() const {
-	return m_entityManager;
 }
 
 void Entity::destroy() {

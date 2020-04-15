@@ -133,15 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Components\AnimationComponent.cpp" />
-    <ClCompile Include="src\Components\GunComponent.cpp" />
     <ClCompile Include="src\Components\IComponent.cpp" />
-    <ClCompile Include="src\Components\ControllerComponent.cpp" />
-    <ClCompile Include="src\Components\MovementComponent.cpp" />
-    <ClCompile Include="src\Components\ProjectileComponent.cpp" />
-    <ClCompile Include="src\Components\RenderComponent.cpp" />
-    <ClCompile Include="src\Components\TimedLifetimeComponent.cpp" />
-    <ClCompile Include="src\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Entity\Blueprints\BulletBlueprint.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactory.cpp" />
@@ -158,15 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Attributes\IAttribute.h" />
-    <ClInclude Include="src\Components\AnimationComponent.h" />
-    <ClInclude Include="src\Components\GunComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
-    <ClInclude Include="src\Components\ControllerComponent.h" />
-    <ClInclude Include="src\Components\MovementComponent.h" />
-    <ClInclude Include="src\Components\ProjectileComponent.h" />
-    <ClInclude Include="src\Components\RenderComponent.h" />
-    <ClInclude Include="src\Components\TimedLifetimeComponent.h" />
-    <ClInclude Include="src\Components\TransformComponent.h" />
     <ClInclude Include="src\Attributes\AttributeManager.h" />
     <ClInclude Include="src\Entity\Blueprints\BulletBlueprint.h" />
     <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />

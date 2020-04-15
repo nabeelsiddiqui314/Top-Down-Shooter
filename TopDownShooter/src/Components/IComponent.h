@@ -1,21 +1,16 @@
 #pragma once
 #include <memory>
 #include "../Events/IEventHandler.h"
-#include "../Entity/Entity.h"
 
-class IBlueprint;
+class AttributeManager;
 
 class IComponent : public IEventHandler {
 public:
-	IComponent(std::weak_ptr<Entity> parent);
+	IComponent(std::weak_ptr<AttributeManager> attributes);
 	virtual ~IComponent() {}
 public:
 	virtual void init() {};
 	virtual void update(float deltaTime) = 0;
-	void dispatchEventToParent(Event& event);
 protected:
-	void destroyParent();
-	void addEntityFromBlueprint(std::unique_ptr<IBlueprint>& bluePrint);
-private:
-	std::weak_ptr<Entity> m_parent;
+	std::weak_ptr<AttributeManager> m_attributes;
 };
