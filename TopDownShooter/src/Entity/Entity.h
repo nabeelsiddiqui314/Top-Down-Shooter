@@ -8,7 +8,7 @@ class AttributeManager;
 class Entity {
 	typedef std::unique_ptr<IComponent> ComponentPtr;
 public:
-	Entity() = default;
+	Entity();
 	~Entity() = default;
 public:
 	void initComponents();

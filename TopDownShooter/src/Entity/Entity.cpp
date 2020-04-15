@@ -2,6 +2,10 @@
 #include "../Components/IComponent.h"
 #include "../Attributes/AttributeManager.h"
 
+Entity::Entity() {
+	m_attributes = std::make_shared<AttributeManager>();
+}
+
 void Entity::initComponents() {
 	for (auto& comonent : m_components) {
 		comonent->init();
