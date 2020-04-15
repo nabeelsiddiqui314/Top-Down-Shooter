@@ -1,10 +1,9 @@
 #pragma once
 #include <memory>
-#include "../Events/IEventHandler.h"
 
 class AttributeManager;
 
-class IComponent : public IEventHandler {
+class IComponent {
 public:
 	IComponent(std::weak_ptr<AttributeManager> attributes);
 	virtual ~IComponent() {}
