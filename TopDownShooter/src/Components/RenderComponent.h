@@ -12,11 +12,12 @@ class SpriteAttribute;
 
 class RenderComponent : public IComponent {
 public:
-	RenderComponent(std::weak_ptr<AttributeManager> attributes, const std::string& texturePath,
-		std::shared_ptr<sf::RenderWindow> window);
+	RenderComponent(const std::string& texturePath, std::shared_ptr<sf::RenderWindow> window);
 	~RenderComponent() = default;
 public:
-	void init() override;
+	void initAttributes(std::shared_ptr<AttributeManager> attributes) override;
+	void fetchAttributes(std::shared_ptr<AttributeManager> attributes) override;
+
 	void update(float) override;
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;

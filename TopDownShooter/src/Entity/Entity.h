@@ -3,7 +3,7 @@
 #include <vector>
 
 class IComponent;
-class AttributeManager;
+#include "../Attributes/AttributeManager.h"
 
 class Entity {
 	typedef std::unique_ptr<IComponent> ComponentPtr;
@@ -16,9 +16,8 @@ public:
 	template <typename T, typename... Args>
 	void addComponent(Args&&... args) {
 		m_components.emplace_back(std::make_unique<T>(std::forward<Args>(args)...));
+		m_components.back()->initAttributes(m_attributes);
 	}
-
-	std::weak_ptr<AttributeManager> getAttributeManager() const;
 
 	void update(float deltaTime);
 	

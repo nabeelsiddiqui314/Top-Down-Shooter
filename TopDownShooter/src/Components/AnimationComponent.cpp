@@ -3,17 +3,18 @@
 #include "../Attributes/AnimationAttribute.h"
 #include "../Attributes/SpriteAttribute.h"
 
-AnimationComponent::AnimationComponent(std::weak_ptr<AttributeManager> attributes, const Animator::AnimationInfo& info)
-	: IComponent(attributes), m_animator(info) {}
+AnimationComponent::AnimationComponent(const Animator::AnimationInfo& info)
+	: m_animator(info) {}
 
-void AnimationComponent::init() {
-	auto attributes = m_attributes.lock();
-	if (attributes->hasAttribute<AnimationAttribute>()) {
-		m_animationAttribute = attributes->getAttribute<AnimationAttribute>();
-	}
+void AnimationComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
+	attributes->addAttribue<AnimationAttribute>();
+}
+
+void AnimationComponent::fetchAttributes(std::shared_ptr<AttributeManager> attributes) {
 	if (attributes->hasAttribute<SpriteAttribute>()) {
 		m_spriteAttribute = attributes->getAttribute<SpriteAttribute>();
 	}
+	m_animationAttribute = attributes->getAttribute<AnimationAttribute>();
 }
 
 void AnimationComponent::update(float) {
@@ -23,7 +24,7 @@ void AnimationComponent::update(float) {
 		sf::IntRect frame;
 
 		if (animationAttrib->isAnimating) {
-			frame = m_animator.animate(animationAttrib->row, animationAttrib->interval);
+			frame = m_animator.animate(animationAttrib->column, animationAttrib->interval);
 		}
 		else {
 			frame = m_animator.getFrame(animationAttrib->row, animationAttrib->column);

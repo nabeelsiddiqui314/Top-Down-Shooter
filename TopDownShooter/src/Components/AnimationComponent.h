@@ -7,10 +7,11 @@ class SpriteAttribute;
 
 class AnimationComponent : public IComponent {
 public:
-	AnimationComponent(std::weak_ptr<AttributeManager> attributes, const Animator::AnimationInfo& info);
+	AnimationComponent(const Animator::AnimationInfo& info);
 	~AnimationComponent() = default;
 public:
-	void init() override;
+	void initAttributes(std::shared_ptr<AttributeManager> attributes) override;
+	void fetchAttributes(std::shared_ptr<AttributeManager> attributes) override;
 	void update(float) override;
 private:
 	Animator m_animator;

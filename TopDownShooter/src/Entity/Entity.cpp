@@ -1,6 +1,5 @@
 #include "Entity.h"
 #include "../Components/IComponent.h"
-#include "../Attributes/AttributeManager.h"
 
 Entity::Entity() {
 	m_attributes = std::make_shared<AttributeManager>();
@@ -8,12 +7,8 @@ Entity::Entity() {
 
 void Entity::initComponents() {
 	for (auto& comonent : m_components) {
-		comonent->init();
+		comonent->fetchAttributes(m_attributes);
 	}
-}
-
-std::weak_ptr<AttributeManager> Entity::getAttributeManager() const {
-	return m_attributes;
 }
 
 void Entity::update(float deltaTime) {

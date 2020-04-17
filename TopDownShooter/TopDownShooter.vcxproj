@@ -134,7 +134,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
-    <ClCompile Include="src\Components\IComponent.cpp" />
     <ClCompile Include="src\Components\RenderComponent.cpp" />
     <ClCompile Include="src\Entity\Blueprints\BulletBlueprint.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />

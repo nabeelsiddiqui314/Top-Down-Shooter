@@ -6,22 +6,24 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-RenderComponent::RenderComponent(std::weak_ptr<AttributeManager> attributes, const std::string& texturePath,
-	std::shared_ptr<sf::RenderWindow> window) 
-	: IComponent(attributes), m_window(window) {
+RenderComponent::RenderComponent(const std::string& texturePath, std::shared_ptr<sf::RenderWindow> window) 
+	: m_window(window) {
 	auto& resourceManager = ResourceManager::getInstance();
 	m_texture = resourceManager.textureContainer.aquire(texturePath);
 }
 
-void RenderComponent::init() {
-	auto attributes = m_attributes.lock();
+void RenderComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
+	attributes->addAttribue<TransformAttribute>();
+	attributes->addAttribue<SpriteAttribute>();
+}
+
+void RenderComponent::fetchAttributes(std::shared_ptr<AttributeManager> attributes) {
 	if (attributes->hasAttribute<TransformAttribute>()) {
 		m_transform = attributes->getAttribute<TransformAttribute>();
 	}
-	if (attributes->hasAttribute<SpriteAttribute>()) {
-		m_sprite = attributes->getAttribute<SpriteAttribute>();
-		m_sprite.lock()->sprite.setTexture(*m_texture);
-	}
+
+	m_sprite = attributes->getAttribute<SpriteAttribute>();
+	m_sprite.lock()->sprite.setTexture(*m_texture);
 }
 
 void RenderComponent::update(float) {
