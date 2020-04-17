@@ -15,14 +15,16 @@ public:
 	~AttributeManager() = default;
 public:
 	template <typename T, typename... Args>
-	void addAttribue(Args&&... args) {
+	std::weak_ptr<T> addAttribue(Args&&... args) {
 		auto attributeID = getAttributeID<T>();
 
-		if (!hasAttribute<T>()) {
-			auto attribute = std::make_shared<T>(std::forward<Args>(args)...);
-			m_attributeIndexMap.emplace(std::make_pair(attributeID, m_attributes.size()));
-			m_attributes.push_back(attribute);
-		}
+		assert(!hasAttribute<T>(), "Trying to add an existing attribute!");
+
+		auto attribute = std::make_shared<T>(std::forward<Args>(args)...);
+		m_attributeIndexMap.emplace(std::make_pair(attributeID, m_attributes.size()));
+		m_attributes.push_back(attribute);
+
+		return std::static_pointer_cast<T>(m_attributes.back());
 	}
 
 	template <typename T>

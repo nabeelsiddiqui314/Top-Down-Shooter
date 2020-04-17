@@ -14,16 +14,14 @@ RenderComponent::RenderComponent(const std::string& texturePath, std::shared_ptr
 
 void RenderComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
 	attributes->addAttribue<TransformAttribute>();
-	attributes->addAttribue<SpriteAttribute>();
+	m_sprite = attributes->addAttribue<SpriteAttribute>();
+	m_sprite.lock()->sprite.setTexture(*m_texture);
 }
 
 void RenderComponent::fetchAttributes(std::shared_ptr<AttributeManager> attributes) {
 	if (attributes->hasAttribute<TransformAttribute>()) {
 		m_transform = attributes->getAttribute<TransformAttribute>();
-	}
-
-	m_sprite = attributes->getAttribute<SpriteAttribute>();
-	m_sprite.lock()->sprite.setTexture(*m_texture);
+	}	
 }
 
 void RenderComponent::update(float) {

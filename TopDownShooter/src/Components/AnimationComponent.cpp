@@ -7,14 +7,13 @@ AnimationComponent::AnimationComponent(const Animator::AnimationInfo& info)
 	: m_animator(info) {}
 
 void AnimationComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
-	attributes->addAttribue<AnimationAttribute>();
+	m_animationAttribute = attributes->addAttribue<AnimationAttribute>();
 }
 
 void AnimationComponent::fetchAttributes(std::shared_ptr<AttributeManager> attributes) {
 	if (attributes->hasAttribute<SpriteAttribute>()) {
 		m_spriteAttribute = attributes->getAttribute<SpriteAttribute>();
 	}
-	m_animationAttribute = attributes->getAttribute<AnimationAttribute>();
 }
 
 void AnimationComponent::update(float) {

@@ -1,9 +1,9 @@
 #pragma once
 #include <memory>
 #include <vector>
+#include "../Attributes/AttributeManager.h"
 
 class IComponent;
-#include "../Attributes/AttributeManager.h"
 
 class Entity {
 	typedef std::unique_ptr<IComponent> ComponentPtr;
