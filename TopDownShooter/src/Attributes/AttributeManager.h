@@ -18,7 +18,7 @@ public:
 	std::weak_ptr<T> addAttribue(Args&&... args) {
 		auto attributeID = getAttributeID<T>();
 
-		assert(!hasAttribute<T>(), "Trying to add an existing attribute!");
+		assert(!hasAttribute<T>() && "Trying to add an existing attribute!");
 
 		auto attribute = std::make_shared<T>(std::forward<Args>(args)...);
 		m_attributeIndexMap.emplace(std::make_pair(attributeID, m_attributes.size()));
@@ -36,7 +36,7 @@ public:
 	template <typename T>
 	std::weak_ptr<T> getAttribute() {
 		auto attributeID = getAttributeID<T>();
-		assert(hasAttribute<T>(), "Trying to fetch invalid attribute");
+		assert(hasAttribute<T>() && "Trying to fetch invalid attribute");
 		return std::static_pointer_cast<T>(m_attributes[m_attributeIndexMap.at(attributeID)]);
 	}
 private:
