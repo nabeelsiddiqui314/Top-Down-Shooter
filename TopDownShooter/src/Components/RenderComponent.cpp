@@ -13,7 +13,6 @@ RenderComponent::RenderComponent(const std::string& texturePath, std::shared_ptr
 }
 
 void RenderComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
-	attributes->addAttribue<TransformAttribute>();
 	m_sprite = attributes->addAttribue<SpriteAttribute>();
 	m_sprite.lock()->sprite.setTexture(*m_texture);
 }
@@ -28,7 +27,7 @@ void RenderComponent::update(float) {
 	auto transform = m_transform.lock();
 	auto spriteAttrib = m_sprite.lock();
 
-	if (transform && spriteAttrib) {
+	if (transform) {
 		spriteAttrib->sprite.setPosition(transform->position);
 		m_window->draw(spriteAttrib->sprite);
 	}

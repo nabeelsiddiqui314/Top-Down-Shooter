@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "../Components/RenderComponent.h"
 #include "../Components/AnimationComponent.h"
+#include "../Components/TransformComponent.h"
 
 EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
  : m_window(window),
@@ -17,6 +18,7 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 
 	player->addComponent<AnimationComponent>(animInfo);
 	player->addComponent<RenderComponent>("player.png", m_window);
+	player->addComponent<TransformComponent>(400, 400);
 
 	return player;
 }

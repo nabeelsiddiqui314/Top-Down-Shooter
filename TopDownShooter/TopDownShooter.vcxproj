@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
     <ClCompile Include="src\Components\RenderComponent.cpp" />
+    <ClCompile Include="src\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Entity\Blueprints\BulletBlueprint.cpp" />
     <ClCompile Include="src\Entity\Entities.cpp" />
     <ClCompile Include="src\Entity\EntityFactory.cpp" />
@@ -154,9 +155,11 @@
     <ClInclude Include="src\Attributes\AttributeManager.h" />
     <ClInclude Include="src\Attributes\SpriteAttribute.h" />
     <ClInclude Include="src\Attributes\TransformAttribute.h" />
+    <ClInclude Include="src\Attributes\VelocityAttribute.h" />
     <ClInclude Include="src\Components\AnimationComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\RenderComponent.h" />
+    <ClInclude Include="src\Components\TransformComponent.h" />
     <ClInclude Include="src\Entity\Blueprints\BulletBlueprint.h" />
     <ClInclude Include="src\Entity\Blueprints\IBlueprint.h" />
     <ClInclude Include="src\Entity\Entities.h" />
