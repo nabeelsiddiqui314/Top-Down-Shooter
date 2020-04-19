@@ -10,7 +10,7 @@ void TransformComponent::initAttributes(std::shared_ptr<AttributeManager> attrib
 	TransformAttribute transform;
 	transform.position = m_originalPosition;
 
-	attributes->addAttribue<TransformAttribute>(transform);
+	m_transformAttribute = attributes->addAttribue<TransformAttribute>(transform);
 }
 
 void TransformComponent::fetchAttributes(std::shared_ptr<AttributeManager> attributes) {
