@@ -11,7 +11,7 @@ public:
 public:
 	void initAttributes(std::shared_ptr<AttributeManager> attributes) override;
 
-	void update(float deltaTime) override;
+	void update(float) override;
 private:
 	const float m_speed;
 	std::weak_ptr<VelocityAttribute> m_velocityAttribute;

@@ -9,14 +9,14 @@ MovementComponent::MovementComponent(float speed)
 void MovementComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
 	m_velocityAttribute = attributes->addAttribue<VelocityAttribute>();
 	m_directionAttribute = attributes->addAttribue<DirectionAttribute>();
-
-	m_directionAttribute.lock()->directions[DirectionAttribute::RIGHT] = true;
-	m_directionAttribute.lock()->directions[DirectionAttribute::DOWN] = true;
 }
 
-void MovementComponent::update(float deltaTime) {
+void MovementComponent::update(float) {
 	auto velocityAttrib = m_velocityAttribute.lock();
 	auto directionAttrib = m_directionAttribute.lock();
+
+	velocityAttrib->velocity.x = 0;
+	velocityAttrib->velocity.y = 0;
 
 	if (directionAttrib->directions[DirectionAttribute::Directions::UP]) {
 		velocityAttrib->velocity.y = -m_speed;

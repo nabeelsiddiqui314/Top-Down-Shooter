@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
+    <ClCompile Include="src\Components\ControllerComponent.cpp" />
     <ClCompile Include="src\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Components\RenderComponent.cpp" />
     <ClCompile Include="src\Components\TransformComponent.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="src\Attributes\TransformAttribute.h" />
     <ClInclude Include="src\Attributes\VelocityAttribute.h" />
     <ClInclude Include="src\Components\AnimationComponent.h" />
+    <ClInclude Include="src\Components\ControllerComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Components\RenderComponent.h" />
