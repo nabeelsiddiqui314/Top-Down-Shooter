@@ -18,11 +18,11 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	animInfo.height = 20;
 	animInfo.columns = { 10, 10, 10};
 
-	player->addComponent<ControllerComponent>();
+	player->addComponent<TransformComponent>(0, 0);
 	player->addComponent<MovementComponent>(20.0f);
 	player->addComponent<AnimationComponent>(animInfo);
 	player->addComponent<RenderComponent>("player.png", m_window);
-	player->addComponent<TransformComponent>(0, 0);
+	//player->addComponent<ControllerComponent>();
 
 	return player;
 }

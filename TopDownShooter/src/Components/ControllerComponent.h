@@ -1,16 +1,15 @@
 #pragma once
+#include <memory>
 #include "IComponent.h"
 
-class DirectionAttribute;
+class IController;
 
 class ControllerComponent : public IComponent {
 public:
-	ControllerComponent() = default;
+	ControllerComponent(std::unique_ptr<IController>& controller);
 	~ControllerComponent() = default;
 public:
-	void fetchAttributes(std::shared_ptr<AttributeManager> attributes) override;
-	
 	void update(float) override;
 private:
-	std::weak_ptr<DirectionAttribute> m_directionAttribute;
+	std::unique_ptr<IController>& m_controller;
 };
