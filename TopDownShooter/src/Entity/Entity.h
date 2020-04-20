@@ -6,7 +6,7 @@
 class IComponent;
 
 class Entity {
-	typedef std::unique_ptr<IComponent> ComponentPtr;
+	typedef std::shared_ptr<IComponent> ComponentPtr;
 public:
 	Entity();
 	~Entity() = default;
@@ -14,9 +14,11 @@ public:
 	void initComponents();
 
 	template <typename T, typename... Args>
-	void addComponent(Args&&... args) {
-		m_components.emplace_back(std::make_unique<T>(std::forward<Args>(args)...));
+	std::shared_ptr<T> addComponent(Args&&... args) {
+		auto component = std::make_shared<T>(std::forward<Args>(args)...);
+		m_components.emplace_back(component);
 		m_components.back()->initAttributes(m_attributes);
+		return component;
 	}
 
 	void update(float deltaTime);
