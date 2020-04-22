@@ -4,7 +4,6 @@
 #include "../Components/AnimationComponent.h"
 #include "../Components/TransformComponent.h"
 #include "../Components/MovementComponent.h"
-#include "../Components/ControllerComponent.h"
 
 EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
  : m_window(window),
@@ -22,7 +21,6 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	player->addComponent<MovementComponent>(20.0f);
 	player->addComponent<AnimationComponent>(animInfo);
 	player->addComponent<RenderComponent>("player.png", m_window);
-	//player->addComponent<ControllerComponent>();
 
 	return player;
 }

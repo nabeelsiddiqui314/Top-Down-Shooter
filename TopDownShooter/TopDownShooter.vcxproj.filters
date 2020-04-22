@@ -63,9 +63,6 @@
     <ClCompile Include="src\Components\MovementComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Components\ControllerComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -149,13 +146,7 @@
     <ClInclude Include="src\Attributes\DirectionAttribute.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\ControllerComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Commands\ICommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Controllers\IController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
