@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "../Utilities/InputHandler.h"
 
 namespace sf {
 	class RenderWindow;
@@ -17,4 +18,5 @@ public:
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;
 	std::weak_ptr<EntityManager> m_entityManager;
+	InputHandler m_playerInputHandler;
 };

@@ -7,7 +7,12 @@
 
 EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
  : m_window(window),
-   m_entityManager(entityManager) {}
+   m_entityManager(entityManager) {
+	m_playerInputHandler.bind("move_forward", sf::Keyboard::W);
+	m_playerInputHandler.bind("move_back", sf::Keyboard::S);
+	m_playerInputHandler.bind("move_left", sf::Keyboard::A);
+	m_playerInputHandler.bind("move_right", sf::Keyboard::D);
+}
 
 std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>();

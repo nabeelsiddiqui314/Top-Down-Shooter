@@ -1,6 +1,6 @@
 #pragma once
 #include "IState.h"
-#include <memory>]
+#include <memory>
 
 class Entities;
 
