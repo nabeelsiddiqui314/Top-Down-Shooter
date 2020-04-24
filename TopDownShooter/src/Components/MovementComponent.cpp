@@ -18,16 +18,26 @@ void MovementComponent::update(float) {
 	velocityAttrib->velocity.x = 0;
 	velocityAttrib->velocity.y = 0;
 
-	if (directionAttrib->directions[DirectionAttribute::Directions::UP]) {
+	if (directionAttrib->getDirection(Direction::UP)) {
 		velocityAttrib->velocity.y = -m_speed;
 	}
-	if (directionAttrib->directions[DirectionAttribute::Directions::DOWN]) {
+	if (directionAttrib->getDirection(Direction::DOWN)) {
 		velocityAttrib->velocity.y = m_speed;
 	}
-	if (directionAttrib->directions[DirectionAttribute::Directions::LEFT]) {
+	if (directionAttrib->getDirection(Direction::LEFT)) {
 		velocityAttrib->velocity.x = -m_speed;
 	}
-	if (directionAttrib->directions[DirectionAttribute::Directions::RIGHT]) {
+	if (directionAttrib->getDirection(Direction::RIGHT)) {
 		velocityAttrib->velocity.x = m_speed;
 	}
+
+	directionAttrib->setDirection(Direction::UP, false);
+	directionAttrib->setDirection(Direction::DOWN, false);
+	directionAttrib->setDirection(Direction::LEFT, false);
+	directionAttrib->setDirection(Direction::RIGHT, false);
+}
+
+void MovementComponent::setMovementDirection(const Direction& direction) {
+	auto directionAttrib = m_directionAttribute.lock();
+	directionAttrib->setDirection(direction, true);
 }
