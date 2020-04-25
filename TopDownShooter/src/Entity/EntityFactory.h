@@ -15,6 +15,7 @@ public:
 	~EntityFactory() = default;
 public:
 	std::shared_ptr<Entity> createPlayer() const;
+	std::shared_ptr<Entity> createStaticObject(const std::string& name, float x, float y) const;
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;
 	std::weak_ptr<EntityManager> m_entityManager;

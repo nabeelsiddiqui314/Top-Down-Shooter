@@ -34,3 +34,12 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 
 	return player;
 }
+
+std::shared_ptr<Entity> EntityFactory::createStaticObject(const std::string& name, float x, float y) const {
+	auto obj = std::make_shared<Entity>();
+
+	obj->addComponent<TransformComponent>(x, y, 0.6f, 0.6f);
+	obj->addComponent<RenderComponent>(name + ".png", m_window);
+
+	return obj;
+}
