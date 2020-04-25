@@ -29,6 +29,7 @@ void RenderComponent::update(float) {
 
 	if (transform) {
 		spriteAttrib->sprite.setPosition(transform->position);
+		spriteAttrib->sprite.setScale(transform->scale);
 		m_window->draw(spriteAttrib->sprite);
 	}
 }

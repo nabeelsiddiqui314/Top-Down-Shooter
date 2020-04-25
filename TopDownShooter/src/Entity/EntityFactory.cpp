@@ -21,16 +21,10 @@ EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak
 std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>();
 
-	Animator::AnimationInfo animInfo;
-	animInfo.width = 20;
-	animInfo.height = 20;
-	animInfo.columns = { 10, 10, 10};
-
-	player->addComponent<TransformComponent>(0, 0);
-	player->addComponent<AnimationComponent>(animInfo);
+	player->addComponent<TransformComponent>(0, 0, 4.0f, 4.0f);
 	player->addComponent<RenderComponent>("player.png", m_window);
 
-	auto moveComp = player->addComponent<MovementComponent>(20.0f);
+	auto moveComp = player->addComponent<MovementComponent>(100.0f);
 	auto inputComp = player->addComponent<InputComponent>(m_playerInputHandler);
 
 	inputComp->bindCommand("move_up"   , std::make_unique<MoveCommand>(moveComp, Direction::UP));
