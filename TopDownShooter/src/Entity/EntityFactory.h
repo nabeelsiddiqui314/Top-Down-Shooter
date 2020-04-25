@@ -18,5 +18,5 @@ public:
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;
 	std::weak_ptr<EntityManager> m_entityManager;
-	InputHandler m_playerInputHandler;
+	std::shared_ptr<InputHandler> m_playerInputHandler;
 };
