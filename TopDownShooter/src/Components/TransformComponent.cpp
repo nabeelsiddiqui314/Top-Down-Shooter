@@ -26,11 +26,8 @@ void TransformComponent::fetchAttributes(std::shared_ptr<AttributeManager> attri
 }
 
 void TransformComponent::update(float deltaTime) {
-	auto transformAttrib = m_transformAttribute.lock();
-	auto velocityAttrib = m_velocityAttribute.lock();
-
-	if (velocityAttrib) {
-		transformAttrib->position.x += velocityAttrib->velocity.x * deltaTime;
-		transformAttrib->position.y += velocityAttrib->velocity.y * deltaTime;
+	if (m_velocityAttribute) {
+		m_transformAttribute->position.x += m_velocityAttribute->velocity.x * deltaTime;
+		m_transformAttribute->position.y += m_velocityAttribute->velocity.y * deltaTime;
 	}
 }

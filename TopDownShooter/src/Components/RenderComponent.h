@@ -22,6 +22,6 @@ public:
 private:
 	std::shared_ptr<sf::RenderWindow> m_window;
 	std::shared_ptr<sf::Texture> m_texture;
-	std::weak_ptr<TransformAttribute> m_transform;
-	std::weak_ptr<SpriteAttribute> m_sprite;
+	std::shared_ptr<TransformAttribute> m_transform;
+	std::shared_ptr<SpriteAttribute> m_sprite;
 };

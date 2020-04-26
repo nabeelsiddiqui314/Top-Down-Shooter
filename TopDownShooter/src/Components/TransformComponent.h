@@ -18,6 +18,6 @@ public:
 private:
 	sf::Vector2f m_originalPosition;
 	sf::Vector2f m_scale;
-	std::weak_ptr<TransformAttribute> m_transformAttribute;
-	std::weak_ptr<VelocityAttribute> m_velocityAttribute;
+	std::shared_ptr<TransformAttribute> m_transformAttribute;
+	std::shared_ptr<VelocityAttribute> m_velocityAttribute;
 };

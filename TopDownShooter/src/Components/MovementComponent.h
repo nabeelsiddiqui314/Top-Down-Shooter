@@ -17,6 +17,6 @@ public:
 	void setMovementDirection(const Direction& direction);
 private:
 	const float m_speed;
-	std::weak_ptr<VelocityAttribute> m_velocityAttribute;
-	std::weak_ptr<DirectionAttribute> m_directionAttribute;
+	std::shared_ptr<VelocityAttribute> m_velocityAttribute;
+	std::shared_ptr<DirectionAttribute> m_directionAttribute;
 };

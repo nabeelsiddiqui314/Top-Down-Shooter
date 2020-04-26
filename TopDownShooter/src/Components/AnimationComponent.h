@@ -15,6 +15,6 @@ public:
 	void update(float) override;
 private:
 	Animator m_animator;
-	std::weak_ptr<AnimationAttribute> m_animationAttribute;
-	std::weak_ptr<SpriteAttribute> m_spriteAttribute;
+	std::shared_ptr<AnimationAttribute> m_animationAttribute;
+	std::shared_ptr<SpriteAttribute> m_spriteAttribute;
 };

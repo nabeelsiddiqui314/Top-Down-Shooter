@@ -15,7 +15,7 @@ public:
 	~AttributeManager() = default;
 public:
 	template <typename T, typename... Args>
-	std::weak_ptr<T> addAttribue(Args&&... args) {
+	std::shared_ptr<T> addAttribue(Args&&... args) {
 		auto attributeID = getAttributeID<T>();
 
 		assert(!hasAttribute<T>() && "Trying to add an existing attribute!");
@@ -34,7 +34,7 @@ public:
 	}
 
 	template <typename T>
-	std::weak_ptr<T> getAttribute() {
+	std::shared_ptr<T> getAttribute() {
 		auto attributeID = getAttributeID<T>();
 		assert(hasAttribute<T>() && "Trying to fetch invalid attribute");
 		return std::static_pointer_cast<T>(m_attributes[m_attributeIndexMap.at(attributeID)]);

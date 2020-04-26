@@ -17,18 +17,16 @@ void AnimationComponent::fetchAttributes(std::shared_ptr<AttributeManager> attri
 }
 
 void AnimationComponent::update(float) {
-	auto animationAttrib = m_animationAttribute.lock();
-	auto spriteAttrib = m_spriteAttribute.lock();
-	if (animationAttrib && spriteAttrib) {
+	if (m_spriteAttribute) {
 		sf::IntRect frame;
 
-		if (animationAttrib->isAnimating) {
-			frame = m_animator.animate(animationAttrib->column, animationAttrib->interval);
+		if (m_animationAttribute->isAnimating) {
+			frame = m_animator.animate(m_animationAttribute->column, m_animationAttribute->interval);
 		}
 		else {
-			frame = m_animator.getFrame(animationAttrib->row, animationAttrib->column);
+			frame = m_animator.getFrame(m_animationAttribute->row, m_animationAttribute->column);
 		}
 
-		spriteAttrib->sprite.setTextureRect(frame);
+		m_spriteAttribute->sprite.setTextureRect(frame);
 	}
 }

@@ -14,7 +14,7 @@ RenderComponent::RenderComponent(const std::string& texturePath, std::shared_ptr
 
 void RenderComponent::initAttributes(std::shared_ptr<AttributeManager> attributes) {
 	m_sprite = attributes->addAttribue<SpriteAttribute>();
-	m_sprite.lock()->sprite.setTexture(*m_texture);
+	m_sprite->sprite.setTexture(*m_texture);
 }
 
 void RenderComponent::fetchAttributes(std::shared_ptr<AttributeManager> attributes) {
@@ -24,12 +24,9 @@ void RenderComponent::fetchAttributes(std::shared_ptr<AttributeManager> attribut
 }
 
 void RenderComponent::update(float) {
-	auto transform = m_transform.lock();
-	auto spriteAttrib = m_sprite.lock();
-
-	if (transform) {
-		spriteAttrib->sprite.setPosition(transform->position);
-		spriteAttrib->sprite.setScale(transform->scale);
-		m_window->draw(spriteAttrib->sprite);
+	if (m_transform) {
+		m_sprite->sprite.setPosition(m_transform->position);
+		m_sprite->sprite.setScale(m_transform->scale);
+		m_window->draw(m_sprite->sprite);
 	}
 }
