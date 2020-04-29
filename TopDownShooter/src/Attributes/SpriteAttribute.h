@@ -1,8 +1,9 @@
 #pragma once
 #include "IAttribute.h"
+#include <memory>
 #include <SFML/Graphics/Sprite.hpp>
 
 class SpriteAttribute : public IAttribute {
 public:
-	sf::Sprite sprite;
+	std::shared_ptr<sf::Sprite> sprite;
 };

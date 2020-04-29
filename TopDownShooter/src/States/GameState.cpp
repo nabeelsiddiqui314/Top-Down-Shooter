@@ -15,7 +15,7 @@ GameState::~GameState() {
 }
 
 void GameState::init(StateMachine* stateMachine) {
-	m_entities = std::make_unique<Entities>(stateMachine->getWindow());
+	m_entities = std::make_unique<Entities>();
 	m_entities->create();
 }
 
@@ -28,5 +28,5 @@ void GameState::update(StateMachine* stateMachine, float deltaTime) {
 }
 
 void GameState::render(sf::RenderWindow& window) {
-
+	m_entities->render(window);
 }

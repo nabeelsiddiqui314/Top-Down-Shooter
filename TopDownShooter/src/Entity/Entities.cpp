@@ -2,9 +2,10 @@
 #include "Entity.h"
 #include <ctime>
 
-Entities::Entities(std::shared_ptr<sf::RenderWindow> window)
-	: m_entityManager(std::make_shared<EntityManager>()),
-	m_entityfactory(window, m_entityManager) {}
+Entities::Entities()
+	: m_spriteRenderer(std::make_shared<SpriteSortRenderer>()),
+	m_entityManager(std::make_shared<EntityManager>()),
+	m_entityfactory(m_spriteRenderer, m_entityManager) {}
 
 void Entities::create() {
 	m_entityManager->addEntity(m_entityfactory.createPlayer());
@@ -16,7 +17,7 @@ void Entities::create() {
 		int y = rand() % 500;
 
 		bool isWall = rand() % 2;
-		std::string name = (isWall ? "wall" : "tree");
+		std::string name = (isWall ? "wall" : "wall");
 		
 		m_entityManager->addEntity(m_entityfactory.createStaticObject(name, x, y));
 	} // test end
@@ -24,4 +25,8 @@ void Entities::create() {
 
 void Entities::update(float deltaTime) {
 	m_entityManager->update(deltaTime);
+}
+
+void Entities::render(sf::RenderWindow& window) {
+	m_spriteRenderer->renderSprites(window);
 }

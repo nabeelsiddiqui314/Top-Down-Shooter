@@ -27,6 +27,6 @@ void AnimationComponent::update(float) {
 			frame = m_animator.getFrame(m_animationAttribute->row, m_animationAttribute->column);
 		}
 
-		m_spriteAttribute->sprite.setTextureRect(frame);
+		m_spriteAttribute->sprite->setTextureRect(frame);
 	}
 }

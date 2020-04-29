@@ -7,8 +7,8 @@
 #include "../Components/InputComponent.h"
 #include "../Commands/MoveCommand.h"
 
-EntityFactory::EntityFactory(std::shared_ptr<sf::RenderWindow> window, std::weak_ptr<EntityManager> entityManager)
- : m_window(window),
+EntityFactory::EntityFactory(std::shared_ptr<SpriteSortRenderer> renderer, std::weak_ptr<EntityManager> entityManager)
+ : m_renderer(renderer),
    m_entityManager(entityManager) {
 	m_playerInputHandler = std::make_shared<InputHandler>();
 
@@ -22,7 +22,7 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 	auto player = std::make_shared<Entity>();
 
 	player->addComponent<TransformComponent>(0, 0, 4.0f, 4.0f);
-	player->addComponent<RenderComponent>("player.png", m_window);
+	player->addComponent<RenderComponent>("player.png", m_renderer);
 
 	auto moveComp = player->addComponent<MovementComponent>(100.0f);
 	auto inputComp = player->addComponent<InputComponent>(m_playerInputHandler);
@@ -39,7 +39,7 @@ std::shared_ptr<Entity> EntityFactory::createStaticObject(const std::string& nam
 	auto obj = std::make_shared<Entity>();
 
 	obj->addComponent<TransformComponent>(x, y, 0.6f, 0.6f);
-	obj->addComponent<RenderComponent>(name + ".png", m_window);
+	obj->addComponent<RenderComponent>(name + ".png", m_renderer);
 
 	return obj;
 }

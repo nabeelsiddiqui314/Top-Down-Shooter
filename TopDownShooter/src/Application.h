@@ -10,7 +10,7 @@ public:
 public:
 	void execute();
 private:
-	std::shared_ptr<sf::RenderWindow> m_window;
+	sf::RenderWindow m_window;
 	StateMachine m_stateMachine;
 
 	sf::Clock m_deltaTimeclock;
