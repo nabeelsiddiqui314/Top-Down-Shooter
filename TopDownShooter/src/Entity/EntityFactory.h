@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "../Utilities/InputHandler.h"
+#include <string>
 
 class SpriteSortRenderer;
 class Entity;
@@ -16,5 +16,4 @@ public:
 private:
 	std::shared_ptr<SpriteSortRenderer> m_renderer;
 	std::shared_ptr<Camera> m_camera;
-	std::shared_ptr<InputHandler> m_playerInputHandler;
 };

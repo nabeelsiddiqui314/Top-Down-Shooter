@@ -1,5 +1,10 @@
 #include "InputHandler.h"
 
+InputHandler& InputHandler::getInstance() {
+	static InputHandler instance;
+	return instance;
+}
+
 void InputHandler::bind(const std::string& inputName, const sf::Keyboard::Key& key) {
 	bindNameToCallback(inputName, [key]() {
 		return sf::Keyboard::isKeyPressed(key);

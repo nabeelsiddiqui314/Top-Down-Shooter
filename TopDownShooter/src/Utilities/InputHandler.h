@@ -8,10 +8,18 @@
 class InputHandler {
 private:
 	typedef std::function<bool()> InputQueryCallback;
-public:
+private:
 	InputHandler() = default;
-	~InputHandler() = default;
 public:
+	~InputHandler() = default;
+	
+	InputHandler(const InputHandler&) = delete;
+	InputHandler(const InputHandler&&) = delete;
+	InputHandler& operator=(const InputHandler&) = delete;
+	InputHandler& operator=(const InputHandler&&) = delete;
+public:
+	static InputHandler& getInstance();
+
 	void bind(const std::string& inputName, const sf::Keyboard::Key& key);
 	void bind(const std::string& inputName, const sf::Mouse::Button& button);
 

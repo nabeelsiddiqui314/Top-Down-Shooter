@@ -3,10 +3,14 @@
 #include "MenuState.h"
 #include <SFML/Window/Event.hpp>
 #include "../Entity/Entities.h"
-
+#include "../Utilities/InputHandler.h"
 
 GameState::GameState() {
-	
+	auto& inputHandler = InputHandler::getInstance();
+	inputHandler.bind("move_up",    sf::Keyboard::W);
+	inputHandler.bind("move_down",  sf::Keyboard::S);
+	inputHandler.bind("move_left",  sf::Keyboard::A);
+	inputHandler.bind("move_right", sf::Keyboard::D);
 }
 
 
