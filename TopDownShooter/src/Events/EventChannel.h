@@ -27,7 +27,7 @@ public:
 
 	void removeSubscriber(Subscription_ID id) {
 		auto iterator = m_callbackMap.find(id);
-		assert(iterator != m_callbackMap.end(), "Ivalid subscription ID");
+		assert(iterator != m_callbackMap.end() && "Ivalid subscription ID");
 
 		m_callbackMap.erase(iterator);
 	}

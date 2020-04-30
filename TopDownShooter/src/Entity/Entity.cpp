@@ -1,8 +1,10 @@
 #include "Entity.h"
 #include "../Components/IComponent.h"
+#include "../Events/EntityEventManager.h"
 
 Entity::Entity() {
 	m_attributes = std::make_shared<AttributeManager>();
+	m_eventManager = std::make_shared<EntityEventManager>();
 }
 
 void Entity::initComponents() {

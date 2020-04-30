@@ -176,5 +176,8 @@
     <ClInclude Include="src\Utilities\SpriteSortRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Events\EntityEventManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
