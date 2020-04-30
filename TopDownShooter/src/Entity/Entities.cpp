@@ -1,11 +1,14 @@
 #include "Entities.h"
-#include "Entity.h"
+#include "EntityManager.h"
+#include "../Utilities/SpriteSortRenderer.h"
+#include "../Utilities/Camera.h"
 #include <ctime>
 
 Entities::Entities()
 	: m_spriteRenderer(std::make_shared<SpriteSortRenderer>()),
+	m_camera(std::make_shared<Camera>()),
 	m_entityManager(std::make_shared<EntityManager>()),
-	m_entityfactory(m_spriteRenderer, m_entityManager) {}
+	m_entityfactory(m_spriteRenderer, m_camera) {}
 
 void Entities::create() {
 	m_entityManager->addEntity(m_entityfactory.createPlayer());
@@ -28,5 +31,6 @@ void Entities::update(float deltaTime) {
 }
 
 void Entities::render(sf::RenderWindow& window) {
+	m_camera->updateView(window);
 	m_spriteRenderer->renderSprites(window);
 }

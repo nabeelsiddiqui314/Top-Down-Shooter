@@ -1,11 +1,15 @@
 #pragma once
 #include <vector>
 #include <memory>
-#include "EntityManager.h"
 #include "EntityFactory.h"
-#include "../Utilities/SpriteSortRenderer.h"
 
-class Entity;
+
+namespace sf {
+	class RenderWindow;
+}
+class SpriteSortRenderer;
+class Camera;
+class EntityManager;
 
 class Entities {
 public:
@@ -17,6 +21,7 @@ public:
 	void render(sf::RenderWindow& window);
 private:
 	std::shared_ptr<SpriteSortRenderer> m_spriteRenderer;
+	std::shared_ptr<Camera> m_camera;
 	std::shared_ptr<EntityManager> m_entityManager;
 	EntityFactory m_entityfactory;
 };

@@ -6,10 +6,11 @@
 #include "../Components/MovementComponent.h"
 #include "../Components/InputComponent.h"
 #include "../Commands/MoveCommand.h"
+#include "../Components/CameraComponent.h"
 
-EntityFactory::EntityFactory(std::shared_ptr<SpriteSortRenderer> renderer, std::weak_ptr<EntityManager> entityManager)
+EntityFactory::EntityFactory(std::shared_ptr<SpriteSortRenderer> renderer, std::shared_ptr<Camera> camera)
  : m_renderer(renderer),
-   m_entityManager(entityManager) {
+	m_camera(camera) {
 	m_playerInputHandler = std::make_shared<InputHandler>();
 
 	m_playerInputHandler->bind("move_up", sf::Keyboard::W);
@@ -23,6 +24,7 @@ std::shared_ptr<Entity> EntityFactory::createPlayer() const {
 
 	player->addComponent<TransformComponent>(0, 0, 4.0f, 4.0f);
 	player->addComponent<RenderComponent>("player.png", m_renderer);
+	player->addComponent<CameraComponent>(m_camera);
 
 	auto moveComp = player->addComponent<MovementComponent>(100.0f);
 	auto inputComp = player->addComponent<InputComponent>(m_playerInputHandler);

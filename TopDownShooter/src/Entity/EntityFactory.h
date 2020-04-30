@@ -3,19 +3,18 @@
 #include "../Utilities/InputHandler.h"
 
 class SpriteSortRenderer;
-
 class Entity;
-class EntityManager;
+class Camera;
 
 class EntityFactory {
 public:
-	EntityFactory(std::shared_ptr<SpriteSortRenderer> renderer, std::weak_ptr<EntityManager> entityManager);
+	EntityFactory(std::shared_ptr<SpriteSortRenderer> renderer, std::shared_ptr<Camera> camera);
 	~EntityFactory() = default;
 public:
 	std::shared_ptr<Entity> createPlayer() const;
 	std::shared_ptr<Entity> createStaticObject(const std::string& name, float x, float y) const;
 private:
 	std::shared_ptr<SpriteSortRenderer> m_renderer;
-	std::weak_ptr<EntityManager> m_entityManager;
+	std::shared_ptr<Camera> m_camera;
 	std::shared_ptr<InputHandler> m_playerInputHandler;
 };
