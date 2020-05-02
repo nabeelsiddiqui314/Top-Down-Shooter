@@ -10,7 +10,7 @@ public:
 	~DecoratorNode() = default;
 public:
 	template <typename T, typename... Args>
-	void setChildNode(Args&&... args) {
+	std::unique_ptr<T>& setChildNode(Args&&... args) {
 		m_child = std::make_unique<T>(std::forward<Args>(args)...);
 	}
 private:

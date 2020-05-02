@@ -11,7 +11,7 @@ public:
 	~CompositeNode() = default;
 public:
 	template <typename T, typename... Args>
-	void addChildNode(Args&&... args) {
+	std::unique_ptr<T>& addChildNode(Args&&... args) {
 		m_children.emplace_back(std::make_unique<T>(std::forward<Args>(args)...));
 	}
 protected:
