@@ -1,5 +1,5 @@
 #include "BehaviourTreeComponent.h"
-#include "../AI/Nodes/Base/INode.h"
+#include "../BehaviourTree/Nodes/Base/INode.h"
 
 BehaviourTreeComponent::BehaviourTreeComponent(NodePtr root) 
 	: m_rootNode(root) {}
