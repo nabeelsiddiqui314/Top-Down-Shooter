@@ -84,7 +84,7 @@
     <ClCompile Include="src\Components\CameraComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\AI\BaseNodes\CompositeNode.cpp">
+    <ClCompile Include="src\AI\Nodes\Base\CompositeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -194,13 +194,13 @@
     <ClInclude Include="src\Components\CameraComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AI\BaseNodes\INode.h">
+    <ClInclude Include="src\AI\Nodes\Base\CompositeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AI\BaseNodes\CompositeNode.h">
+    <ClInclude Include="src\AI\Nodes\Base\DecoratorNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AI\BaseNodes\DecoratorNode.h">
+    <ClInclude Include="src\AI\Nodes\Base\INode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

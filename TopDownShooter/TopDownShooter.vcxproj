@@ -133,7 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\AI\BaseNodes\CompositeNode.cpp" />
+    <ClCompile Include="src\AI\Nodes\Base\CompositeNode.cpp" />
     <ClCompile Include="src\Attributes\DirectionAttribute.cpp" />
     <ClCompile Include="src\Commands\MoveCommand.cpp" />
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
@@ -159,9 +159,9 @@
     <ClCompile Include="src\Utilities\SpriteSortRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\AI\BaseNodes\CompositeNode.h" />
-    <ClInclude Include="src\AI\BaseNodes\DecoratorNode.h" />
-    <ClInclude Include="src\AI\BaseNodes\INode.h" />
+    <ClInclude Include="src\AI\Nodes\Base\CompositeNode.h" />
+    <ClInclude Include="src\AI\Nodes\Base\DecoratorNode.h" />
+    <ClInclude Include="src\AI\Nodes\Base\INode.h" />
     <ClInclude Include="src\Attributes\AnimationAttribute.h" />
     <ClInclude Include="src\Attributes\DirectionAttribute.h" />
     <ClInclude Include="src\Attributes\IAttribute.h" />
