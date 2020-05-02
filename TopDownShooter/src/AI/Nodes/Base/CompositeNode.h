@@ -15,7 +15,7 @@ public:
 		m_children.emplace_back(std::make_unique<T>(std::forward<Args>(args)...));
 	}
 protected:
-	const std::vector<NodePtr>& getChildren() const;
+	const std::vector<NodePtr>& getChildrenNodes() const;
 private:
 	std::vector<NodePtr> m_children;
 };

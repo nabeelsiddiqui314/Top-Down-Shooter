@@ -134,6 +134,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\AI\Nodes\Base\CompositeNode.cpp" />
+    <ClCompile Include="src\AI\Nodes\Composite\Selector.cpp" />
+    <ClCompile Include="src\AI\Nodes\Composite\Sequence.cpp" />
     <ClCompile Include="src\Attributes\DirectionAttribute.cpp" />
     <ClCompile Include="src\Commands\MoveCommand.cpp" />
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
@@ -162,6 +164,8 @@
     <ClInclude Include="src\AI\Nodes\Base\CompositeNode.h" />
     <ClInclude Include="src\AI\Nodes\Base\DecoratorNode.h" />
     <ClInclude Include="src\AI\Nodes\Base\INode.h" />
+    <ClInclude Include="src\AI\Nodes\Composite\Selector.h" />
+    <ClInclude Include="src\AI\Nodes\Composite\Sequence.h" />
     <ClInclude Include="src\Attributes\AnimationAttribute.h" />
     <ClInclude Include="src\Attributes\DirectionAttribute.h" />
     <ClInclude Include="src\Attributes\IAttribute.h" />
