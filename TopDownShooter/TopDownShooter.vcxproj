@@ -139,6 +139,7 @@
     <ClCompile Include="src\Attributes\DirectionAttribute.cpp" />
     <ClCompile Include="src\Commands\MoveCommand.cpp" />
     <ClCompile Include="src\Components\AnimationComponent.cpp" />
+    <ClCompile Include="src\Components\BehaviourTreeComponent.cpp" />
     <ClCompile Include="src\Components\CameraComponent.cpp" />
     <ClCompile Include="src\Components\InputComponent.cpp" />
     <ClCompile Include="src\Components\MovementComponent.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\Commands\ICommand.h" />
     <ClInclude Include="src\Commands\MoveCommand.h" />
     <ClInclude Include="src\Components\AnimationComponent.h" />
+    <ClInclude Include="src\Components\BehaviourTreeComponent.h" />
     <ClInclude Include="src\Components\CameraComponent.h" />
     <ClInclude Include="src\Components\IComponent.h" />
     <ClInclude Include="src\Components\InputComponent.h" />
