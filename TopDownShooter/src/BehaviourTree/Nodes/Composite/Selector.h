@@ -1,7 +1,7 @@
 #pragma once
-#include "../Base/CompositeNode.h"
+#include "../Base/ICompositeNode.h"
 
-class Selector : public CompositeNode {
+class Selector : public ICompositeNode {
 public:
 	Selector() = default;
 	~Selector() = default;

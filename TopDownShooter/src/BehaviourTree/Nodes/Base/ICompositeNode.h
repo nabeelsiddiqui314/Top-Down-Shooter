@@ -3,12 +3,12 @@
 #include <memory>
 #include <vector>
 
-class CompositeNode : public INode {
+class ICompositeNode : public INode {
 private:
 	typedef std::unique_ptr<INode> NodePtr;
 public:
-	CompositeNode() = default;
-	~CompositeNode() = default;
+	ICompositeNode() = default;
+	~ICompositeNode() = default;
 public:
 	template <typename T, typename... Args>
 	std::unique_ptr<T>& addChildNode(Args&&... args) {

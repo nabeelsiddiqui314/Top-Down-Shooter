@@ -87,13 +87,13 @@
     <ClCompile Include="src\Components\BehaviourTreeComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\BehaviourTree\Nodes\Base\CompositeNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\BehaviourTree\Nodes\Composite\Selector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\BehaviourTree\Nodes\Composite\Sequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BehaviourTree\Nodes\Base\ICompositeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -206,12 +206,6 @@
     <ClInclude Include="src\Components\BehaviourTreeComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\BehaviourTree\Nodes\Base\CompositeNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\BehaviourTree\Nodes\Base\DecoratorNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\BehaviourTree\Nodes\Base\INode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -219,6 +213,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\BehaviourTree\Nodes\Composite\Sequence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BehaviourTree\Nodes\Base\IDecoratorNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BehaviourTree\Nodes\Base\ICompositeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

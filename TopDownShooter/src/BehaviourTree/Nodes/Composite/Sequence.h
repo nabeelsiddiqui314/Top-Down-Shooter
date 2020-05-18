@@ -1,7 +1,7 @@
 #pragma once
-#include "../Base/CompositeNode.h"
+#include "../Base/ICompositeNode.h"
 
-class Sequence : public CompositeNode {
+class Sequence : public ICompositeNode {
 public:
 	Sequence() = default;
 	~Sequence() = default;

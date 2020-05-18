@@ -2,12 +2,12 @@
 #include "INode.h"
 #include <memory>
 
-class DecoratorNode : public INode {
+class IDecoratorNode : public INode {
 private:
 	typedef std::unique_ptr<INode> NodePtr;
 public:
-	DecoratorNode() = default;
-	~DecoratorNode() = default;
+	IDecoratorNode() = default;
+	~IDecoratorNode() = default;
 public:
 	template <typename T, typename... Args>
 	std::unique_ptr<T>& setChildNode(Args&&... args) {

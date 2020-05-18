@@ -133,7 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\BehaviourTree\Nodes\Base\CompositeNode.cpp" />
+    <ClCompile Include="src\BehaviourTree\Nodes\Base\ICompositeNode.cpp" />
     <ClCompile Include="src\BehaviourTree\Nodes\Composite\Selector.cpp" />
     <ClCompile Include="src\BehaviourTree\Nodes\Composite\Sequence.cpp" />
     <ClCompile Include="src\Attributes\DirectionAttribute.cpp" />
@@ -162,8 +162,8 @@
     <ClCompile Include="src\Utilities\SpriteSortRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\BehaviourTree\Nodes\Base\CompositeNode.h" />
-    <ClInclude Include="src\BehaviourTree\Nodes\Base\DecoratorNode.h" />
+    <ClInclude Include="src\BehaviourTree\Nodes\Base\ICompositeNode.h" />
+    <ClInclude Include="src\BehaviourTree\Nodes\Base\IDecoratorNode.h" />
     <ClInclude Include="src\BehaviourTree\Nodes\Base\INode.h" />
     <ClInclude Include="src\BehaviourTree\Nodes\Composite\Selector.h" />
     <ClInclude Include="src\BehaviourTree\Nodes\Composite\Sequence.h" />
